@@ -1,14 +1,33 @@
 % This is the main file starting the game
 
-:- dynamic i_am_at/1, at/2, holding/1, answer/1.
-:- retractall(at(_, _)), retractall(i_am_at(_)), retractall(alive(_)).
-:- retractall(answer(_)).
+% These predicates are going to be changed during the game
+:-
+    dynamic
+    i_am_at/1,
+    at/2,
+    holding/1,
+    answer/1,
+    bathroom_locked/0.
+
+% These predicates are initialised with false
+:-
+    retractall(at(_, _)),
+    retractall(i_am_at(_)),
+    retractall(alive(_)),
+    retractall(answer(_)).
+
+% These predicates are initialised with true
+:-
+    assert(bathroom_locked).
 
 :- ensure_loaded(paths).
 
 % load all locations
-:- ensure_loaded(locations/room).
-:- ensure_loaded(locations/openspace).
+:-
+    ensure_loaded(locations/room),
+    ensure_loaded(locations/openspace),
+    ensure_loaded(locations/bathroom).
+
 
 % load all actions
 :- ensure_loaded(actions/drop).

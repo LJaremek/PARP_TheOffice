@@ -1,3 +1,5 @@
+:- multifile holding/1, i_am_at/1, at/2.
+
 /* These rules describe how to pick up an object. */
 
 take(X) :-

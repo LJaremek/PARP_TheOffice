@@ -4,18 +4,18 @@ describe(room) :-
     write('You are in a room. There is a person here'), nl,
     write('HINT: talk(person)'), nl,!.
 
-talk(person) :-
-    write('Person: Hi!'), nl,
-    nl,
-    write('a. Hello there'), nl,
-    write('b. I don''t like you'), nl,
-    write('Enter symbol of dialogue option followed by a dot:'), nl,
-    read(Answer), nl,
-    assert(answer(Answer)),     % answer = Answer
-    answer(Answer),
-    retractall(answer(_)).
 
-answer(a) :- write('General Kenobi'),!.
-answer(b) :- write('You are rude!'),!.
-% answer(_) :-
-%     write('Not a valid input').
+talk(person) :-
+    nl,
+    write('Person: Hi!'), nl,
+    write('Enter number of dialogue option followed by a dot:'), nl,
+    write('1. Hello there'), nl,
+    write('2. I don''t like you'), nl,
+    read(Choice),
+    answer(Choice).
+
+answer(Choice) :-
+    Choice == 1, write('Person: General Kenobi'), nl;
+    Choice == 2, write('Person: You are rude!'), nl;
+    write('Not a valid dialogue option'), nl, talk(person).
+

@@ -15,7 +15,7 @@ talk(person) :-
     answer(Choice).
 
 answer(Choice) :-
-    Choice == 1, write('Person: General Kenobi'), nl;
-    Choice == 2, write('Person: You are rude!'), nl;
+    Choice == 1, !, write('Person: General Kenobi'), nl;
+    Choice == 2, !, write('Person: You are rude!'), nl;
     write('Not a valid dialogue option'), nl, talk(person).
 

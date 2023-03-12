@@ -9,6 +9,7 @@ swipl init.pl
 ```
 go_to(kitchen).
 go_to(bathroom).
+knock.
 ```
 A następnie podążanie za instrukcjami wyświetlanymi na ekranie. Prawidłowa sekwencja odpowiedzi, to:
 ```

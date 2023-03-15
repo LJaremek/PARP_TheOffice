@@ -27,7 +27,8 @@
     ensure_loaded(locations/room),
     ensure_loaded(locations/openspace),
     ensure_loaded(locations/kitchen),
-    ensure_loaded(locations/bathroom).
+    ensure_loaded(locations/bathroom),
+    ensure_loaded(locations/conference_room).
 
 
 % load all actions

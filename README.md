@@ -7,8 +7,8 @@ swipl init.pl
 
 ### Wykonanie questu Dwighta
 ```
-go_to(kitchen).
-go_to(bathroom).
+go(kitchen).
+go(bathroom).
 knock.
 ```
 A następnie podążanie za instrukcjami wyświetlanymi na ekranie. Prawidłowa sekwencja odpowiedzi, to:

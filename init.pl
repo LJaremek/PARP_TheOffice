@@ -12,7 +12,8 @@
     door_destroyed/0,
     
     dwight_stapler_out_clear/0,
-    dwight_stapler_out_jelly/0.
+    dwight_stapler_out_jelly/0,
+    dwight_stapler_in_jelly/0.
 
 % These predicates are initialised with false
 :-

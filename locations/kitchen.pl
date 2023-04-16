@@ -20,14 +20,15 @@ jelly_stapler :-
 
     write("Choose the color of the jelly."), nl,
     write("HINT: 'red', 'green' or 'blue': "),
-    read(Jellycolor),
+    read(_),
 
-    write("Its ready!"), nl,
+    write("Its ready!"), nl, nl,
     write(" /----------\\"), nl,
     write("/  |/----,,  \\"), nl,
     write("|  |[______   |"), nl,
-    write("=============="), nl,
+    write("==============="), nl, nl,
+
+    write("Now I can put back the stapler to the drawer."), nl,
 
     retractall(dwight_stapler_out_clear),
-    assert(dwight_stapler_out_jelly),
-    describe(kitchen).
+    assert(dwight_stapler_out_jelly).

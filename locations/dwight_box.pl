@@ -17,20 +17,35 @@ describe(dwight_box) :-
     write("You are in the Dwight Box"), nl,
     write("You can go to the 'openspace' from here"), nl,
 
-
     (dwight_drawer_lock ->
+        write("Jim told me to prank Dwight."), nl, 
         write("You see his desk with the drawer closed with a four-digit lock."), nl,
-        write("Maybe can you breake the code?."), nl,
+        write("Maybe can I breake the code?. There should be something!"), nl,
         write("HINT: 'break_code.'")
         ;
         true
     ),
 
     (dwight_stapler_out_clear ->
-        write("Dupa")
+        write("I have the stapler in my hands."), nl,
+        write("I have to go to the kitchen and put it to the jelly!")
         ;
         true
+    ),
+
+    (dwight_stapler_out_jelly ->
+        write("I have the stapler in a jelly in my hands."), nl,
+        write("I have to put it back to the drawer!"), nl,
+        write("HINT 'put_jelly_stapler.'")
+        ;
+        true
+    ),
+
+    (dwight_stapler_in_jelly ->
+        write("The jelly stapler is in the Dwight desk dewar. Good job!"), nl,
+        write("Jim gave me a confirmation of completing the task.")
     ).
+
 
 break_code :-
     i_am_at(dwight_box),
@@ -57,5 +72,10 @@ breaked_code :-
     write("I broke the code!"), nl,
     write("Now I have to put it to jelly in the kitchen."), nl,
     retractall(dwight_drawer_lock),
-    assert(dwight_stapler_out_clear),
-    describe(dwight_box).
+    assert(dwight_stapler_out_clear).
+
+
+put_jelly_stapler :-
+    write("Now the jelly stapler is in the Dwight drawer."), nl,
+    retractall(dwight_stapler_out_clear),
+    assert(dwight_stapler_in_jelly).

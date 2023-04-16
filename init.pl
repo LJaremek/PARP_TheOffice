@@ -9,7 +9,10 @@
     answer/1,
     bathroom_locked/0,
     dwight_quest_done/0,
-    door_destroyed/0.
+    door_destroyed/0,
+    
+    dwight_stapler_out_clear/0,
+    dwight_stapler_out_jelly/0.
 
 % These predicates are initialised with false
 :-
@@ -28,7 +31,8 @@
     ensure_loaded(locations/openspace),
     ensure_loaded(locations/kitchen),
     ensure_loaded(locations/bathroom),
-    ensure_loaded(locations/conference_room).
+    ensure_loaded(locations/conference_room),
+    ensure_loaded(locations/dwight_box).
 
 
 % load all actions

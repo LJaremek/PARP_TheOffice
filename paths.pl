@@ -10,5 +10,8 @@ path(room, openspace).
 path(kitchen, bathroom).
 path(bathroom, kitchen).
 
+path(openspace, dwight_box).
+path(dwight_box, openspace).
+
 path(openspace, conference_room).
 path(conference_room, openspace).

@@ -5,4 +5,4 @@
 
 describe(openspace) :-
     write("You are in the openspace"), nl,
-    write("You can go to the 'kitchen' and 'dwight_box' from here"), !.
+    write("You can go to the 'kitchen', 'dwight_box' and 'creed_desk' from here"), !.

@@ -26,7 +26,7 @@ go(openspace).
 go(kitchen).
 go(break_room).
 machine.
-73.
+073.
 go(kitchen).
 go(openspace).
 go(creed_desk).

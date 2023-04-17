@@ -3,6 +3,7 @@
 ### Uruchamianie
 ```
 swipl init.pl
+start.
 ```
 
 ### Wykonanie questu Dwighta

@@ -2,7 +2,9 @@
 describe/1, i_am_at/1, go/1,
 creed_quest_started/0,
 grape_soda/0,
-creed_quest_done/0.
+strange_soda/0,
+creed_quest_done_full/0,
+creed_quest_done_half/0.
 
 
 describe(creed_desk) :-
@@ -11,10 +13,9 @@ describe(creed_desk) :-
     write("You can go back to openspace from here.").
 
 talk :-
-    % description when creed quest is done
-    (creed_quest_done ->
+    ((creed_quest_done_full ; creed_quest_done_half) ->
         nl,
-        write("Creed: Hi kid, thanks for the drink once again!")
+        write("Creed: Hi kid, thanks for the drink once again!"), nl
     ;
         true
     ),
@@ -23,18 +24,29 @@ talk :-
         write("Creed: Hi kid, I have some small job for you."), nl,
         decide_wheter_to_start_creed_quest, !
     ;
-        (grape_soda, not(creed_quest_done) ->
+        (grape_soda ->
             nl,
-            write("Creed: Hi kid, I see you have my soda, nice job!"), nl,
+            write("Creed: Hi kid, I see you have my Grape Soda, nice job!"), nl,
             retractall(grape_soda),
-            assert(creed_quest_done)
+            assert(creed_quest_done_full)
         ;
-            not(creed_quest_done),
+            strange_soda,
+            not(creed_quest_done_full),
+            not(creed_quest_done_half),
             nl, 
-            write("Creed: *plays solitaire without even noticing you*"), nl,
-            write("(HINT: go(openspace).)"), nl
+            write("Creed: It's not grape soda but it will do the thing, thanks kid!"), nl,
+            retractall(strange_soda),
+            assert(creed_quest_done_half)
             ; !
-        )
+        ),
+
+        not(creed_quest_done_full),
+        not(creed_quest_done_half),
+        nl, 
+        write("Creed: *plays solitaire without even noticing you*"), nl,
+        write("(HINT: go(openspace).)"), nl
+        ;
+        !
     ).
 
 decide_wheter_to_start_creed_quest :-
@@ -59,12 +71,14 @@ answer_creed(Choice) :-
 
 display_creed_quest_opening :-
     nl,
-    write("Creed: Nice, so I would like to drink some Grape Soda, but the thing is that TODO"), nl,
-    write("Creed: So here is the matrix..."), nl, nl,
-    write("         F  G  H"), nl,
-    write("       P 34 15 92"), nl,
-    write("       R 59 41 65"), nl,
-    write("       S 26 73 87"), nl.
+    write("Creed: Nice, I have this coupon for one free soda in our vending machine. I would like to drink some Grape Soda, but the thing is that this coupon is strange. I don't know how to use it, maybe you will figure it out."), nl,
+    write("Creed: So here is the coupon..."), nl, nl,
+    write("       =ONE FREE SODA="), nl,
+    write("          F   G   H"), nl,
+    write("       P 034 015 092"), nl,
+    write("       R 059 041 065"), nl,
+    write("       S 026 073 087"), nl, nl,
+    write("Remember you have only one shot..."), nl.
 
 creed_quest :-
     display_creed_quest_opening,

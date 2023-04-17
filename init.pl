@@ -17,7 +17,9 @@
 
     creed_quest_started/0,
     grape_soda/0,
-    creed_quest_done/0.
+    strange_soda/0,
+    creed_quest_done_full/0,
+    creed_quest_done_half/0.
 
 % These predicates are initialised with false
 :-
@@ -25,8 +27,6 @@
     retractall(at(_, _)),
     retractall(i_am_at(_)),
     retractall(alive(_)).
-
-
 
 :- ensure_loaded(paths).
 

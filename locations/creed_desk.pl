@@ -78,7 +78,7 @@ display_creed_quest_opening :-
     write("       P 034 015 092"), nl,
     write("       R 059 041 065"), nl,
     write("       S 026 073 087"), nl, nl,
-    write("Remember you have only one shot..."), nl.
+    write("As I said: I would prefer the Grape Soda, but I don't know how to order it using this strange coupon..."), nl.
 
 creed_quest :-
     display_creed_quest_opening,

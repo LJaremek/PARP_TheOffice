@@ -17,6 +17,7 @@ A następnie podążanie za instrukcjami wyświetlanymi na ekranie. Prawidłowa 
 ```
 
 ### Wykonanie questu Creeda
+```
 go(creed_desk).
 talk.
 1.
@@ -29,3 +30,4 @@ go(kitchen).
 go(openspace).
 go(creed_desk).
 talk.
+```

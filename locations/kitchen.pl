@@ -3,9 +3,9 @@
 
 describe(kitchen) :-
     write("You are in the kitchen"), nl,
-    write("You can go to the 'break_room', 'bathroom' or to the 'openspace' from here"), nl,
-    write("There is a coffee machine, some tea, kettle, and jelly powder."),
-    write("Maybe it will be useful later..."),
+    write("There is a coffee machine, some tea, a kettle, and some jelly powder."), nl,
+    write("Maybe it will be useful later..."), nl,
+    write("You can go to the 'break_room', 'bathroom' or to the 'openspace' from here."),
 
     (dwight_stapler_out_clear ->
         nl,

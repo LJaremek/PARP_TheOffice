@@ -20,5 +20,5 @@ enter :-
     nl,
     write("As you step out of the elevator you enter the office openspace..."), nl,
     write("You see Jim approaching you with a big smile..."), nl,
-    write("Jim: i, I'm Jim! I'm glad to have the opportunity to assign you something useful that will prove your competence. Dwight is working in our office, he's my best friend who LOVES jelly and staplers. Play him a funny prank, and I'll sign off on your task completion. It's worth checking out his box in the openspace. Good luck!"), nl,
+    write("Jim: Hi, I'm Jim! I'm glad to have the opportunity to assign to you something useful that will prove your competence. Dwight is working in our office, he's my best friend who LOVES jelly and staplers. Play him a funny prank, and I'll sign off on your task completion. It's worth checking out his desk in the openspace. Good luck!"), nl,
     go(openspace), !.

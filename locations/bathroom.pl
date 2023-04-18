@@ -18,9 +18,9 @@ describe(bathroom) :-
     write('You stop in front of the bathroom door. You place your hand on the door handle...'), nl,
     write('...and suddenly you hear furious German swearing words coming from the inside.'), nl,
     write('HINT: knock. or go(kitchen).'), !;
-    
+
     % description when bathroom is not locked
-    write("Some toilets, sinks, and rather unhealthy smell. The toilet paper seems to be missing as ususal. Nothing too interesting here."),
+    write("Some toilets, sinks, and rather unhealthy smell. The toilet paper seems to be missing as ususal. Nothing too interesting here."), nl,
     write("You can go back to the 'kitchen' from here"), !.
 
 knock :-

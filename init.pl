@@ -51,6 +51,7 @@
 :- ensure_loaded(actions/instructions).
 :- ensure_loaded(actions/look).
 :- ensure_loaded(actions/start).
+:- ensure_loaded(actions/inventory).
 
 % set starting location
 i_am_at(elevator).

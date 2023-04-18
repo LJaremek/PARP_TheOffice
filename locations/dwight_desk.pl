@@ -18,7 +18,7 @@
 
 
 describe(dwight_desk) :-
-    write("You are in the Dwight Box"), nl,
+    write("You are in the Dwight desk"), nl,
     write("You can go to the 'openspace' from here"), nl,
 
     (dwight_drawer_lock ->

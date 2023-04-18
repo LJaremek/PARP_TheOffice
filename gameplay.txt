@@ -1,0 +1,325 @@
+Welcome to SWI-Prolog (threaded, 64 bits, version 7.6.4)
+SWI-Prolog comes with ABSOLUTELY NO WARRANTY. This is free software.
+Please run ?- license. for legal details.
+
+For online help and background, visit http://www.swi-prolog.org
+For built-in help, use ?- help(Topic). or ?- apropos(Word).
+
+?- start.
+
+Enter commands using standard Prolog syntax.
+Available commands are:
+start.           -- to start the game.
+go(Room).        -- to go to that room.
+look.            -- to look around you again.
+inventory.       -- to show inventory.
+instructions.    -- to see this message again.
+halt.            -- to end the game and quit.
+
+You step into the elevator and when the doors are closing Michael (your boss) rushes inside.
+
+Michael: Hi, you must be our new intern, welcome to Dunder Mifflin!
+(HINT: type 'hi.' to say hi)
+true.
+
+?- hi.
+
+Michael: During your internship you should obtain 3 (hopefully positive) reviews from other employees. Look around the office and see what you can do. When you are ready come to my room and I will take a look. Good luck!
+(HINT: enter. to enter the office)
+true.
+
+?- enter.
+
+As you step out of the elevator you enter the office openspace...
+You see Jim approaching you with a big smile...
+Jim: Hi, I'm Jim! I'm glad to have the opportunity to assign to you something useful that will prove your competence. Dwight is working in our office, he's my best friend who LOVES jelly and staplers. Play him a funny prank, and I'll sign off on your task completion. It's worth checking out his desk in the openspace. Good luck!
+
+You are in the openspace
+You can go to the 'kitchen', 'dwight_desk', 'creed_desk' and 'michael_room' from here
+true.
+
+?- go(dwight_desk).
+
+You are near the Dwight desk
+You can go to the 'openspace' from here
+Jim told me to prank Dwight.
+You see his desk with the drawer closed with a four-digit lock.
+Maybe can I breake the code?. There should be something!
+HINT: 'break_code.'
+true.
+
+?- break_code.
+Type the code:
+|: 4200.
+It's not that number. I think the code number is bigger...
+Type the code:
+|: 6000.
+It's not that number. I think the code number is less...
+Type the code:
+|: 4510.
+
+I have broken the code!
+There is a stapler here... I'm taking it!
+Now I have to put it to jelly in the kitchen.
+true.
+
+?- go(openspace).
+
+You are in the openspace
+You can go to the 'kitchen', 'dwight_desk', 'creed_desk' and 'michael_room' from here
+true.
+
+?- go(kitchen).
+
+You are in the kitchen
+There is a coffee machine, some tea, a kettle, and some jelly powder.
+Maybe it will be useful later...
+You can go to the 'break_room', 'bathroom' or to the 'openspace' from here.
+Do you want to put the Dwight stapler to the jelly?
+HINT: 'jelly_stapler.'
+true.
+
+?- jelly_stapler.
+Choose the color of the jelly.
+HINT: 'red', 'green' or 'blue':
+|: green.
+Its ready!
+
+ /----------\
+/  |/----,,  \
+|  |[______   |
+===============
+
+Now I can put back the stapler to the drawer.
+true.
+
+?- inventory.
+Stapler in a jelly
+
+true.
+
+?- go(openspace).
+
+You are in the openspace
+You can go to the 'kitchen', 'dwight_desk', 'creed_desk' and 'michael_room' from here
+true.
+
+?- go(dwight_desk).
+
+You are near the Dwight desk
+You can go to the 'openspace' from here
+I have the stapler in a jelly in my hands.
+I have to put it back to the drawer!
+HINT 'put_jelly_stapler.'
+true.
+
+?- put_jelly_stapler.
+Now the jelly stapler is in the Dwight drawer.
+Jim: The jelly stapler is in the Dwight desk drawer. Good job!
+Jim gave me his reference.
+Michael will be proud of me when he sees this!
+true.
+
+?- go(openspace).
+
+You are in the openspace
+You can go to the 'kitchen', 'dwight_desk', 'creed_desk' and 'michael_room' from here
+true.
+
+?- go(creed_desk).
+
+You see Creed playing solitaire on his computer while eating an apple...
+(HINT: talk.)
+You can go back to 'openspace' from here.
+true.
+
+?- talk.
+Creed: Hi kid, I have some small job for you.
+
+Enter number of dialogue option followed by a dot:
+1. Ok, I will do it. (start quest)
+2. Sorry, but I don't have time right now. (leave)
+|: 1.
+
+Creed: Nice, I have this coupon for one free soda in our vending machine. I would like to drink some Grape Soda, but the thing is that this coupon is strange. I don't know how to use it, maybe you will figure it out.
+Creed: So here is the coupon...
+
+       =ONE FREE SODA=
+          F   G   H
+       P 034 015 092
+       R 059 041 065
+       S 026 073 087
+
+Creed: As I said, I would prefer the Grape Soda, but I don't know how to order it using this strange coupon...
+Creed: When you will figure out the proper code, go the the break room and type it into the vending machine.
+true.
+
+?- go(kitchen).
+There is not such place here
+true.
+
+?- go(openspace).
+
+You are in the openspace
+You can go to the 'kitchen', 'dwight_desk', 'creed_desk' and 'michael_room' from here
+true.
+
+?- go(kitchen).
+
+You are in the kitchen
+There is a coffee machine, some tea, a kettle, and some jelly powder.
+Maybe it will be useful later...
+You can go to the 'break_room', 'bathroom' or to the 'openspace' from here.
+true.
+
+?- go(break_room).
+
+You are in the break room
+There's a vending machine here (HINT: machine.)
+You can go back to the kitchen
+true.
+
+?- machine.
+
+Enter a number:
+|: 073.
+
+You have the Grape Soda!
+true.
+
+?- look.
+You are in the break room
+There's a vending machine here (HINT: machine.)
+You can go back to the kitchen
+true.
+
+?- go(kitchen).
+
+You are in the kitchen
+There is a coffee machine, some tea, a kettle, and some jelly powder.
+Maybe it will be useful later...
+You can go to the 'break_room', 'bathroom' or to the 'openspace' from here.
+true.
+
+?- go(openspace).
+
+You are in the openspace
+You can go to the 'kitchen', 'dwight_desk', 'creed_desk' and 'michael_room' from here
+true.
+
+?- go(creed_desk).
+
+You see Creed playing solitaire on his computer while eating an apple...
+(HINT: talk.)
+You can go back to 'openspace' from here.
+true.
+
+?- talk.
+
+Creed: Hi kid, I see you have my Grape Soda, nice job!
+Creed: I'm giving you a great review!
+true.
+
+?- go(openspace).
+
+You are in the openspace
+You can go to the 'kitchen', 'dwight_desk', 'creed_desk' and 'michael_room' from here
+true.
+
+?- go(kitchen).
+
+You are in the kitchen
+There is a coffee machine, some tea, a kettle, and some jelly powder.
+Maybe it will be useful later...
+You can go to the 'break_room', 'bathroom' or to the 'openspace' from here.
+true.
+
+?- go(bathroom).
+
+You stop in front of the bathroom door. You place your hand on the door handle...
+...and suddenly you hear furious German swearing words coming from the inside.
+HINT: knock. or go(kitchen).
+true.
+
+?- knock.
+
+Dwight (from the inside): Hey, wait! Temp, is that you? You have to help me. I've been locked inside.
+Dwight: If you help me and tell nothing to Jim I will give you my recommendation.
+You: How on Earth are you locked inside?
+Dwight: I have forgotten that I had recently changed code to my padlock...
+You: Do you always lock yourself in a bathroom with a padlock?
+Dwight: Of course, Temp. I value my privacy, I always have my military padlock with digit code.
+Dwight: For security reasons I change the code every month... Temp, you have to help me!
+
+Enter number of dialogue option followed by a dot:
+1. Ok, I will help you now. (start quest)
+2. Oh, I have left the oven turned on... be right back! (leave Dwight inside)
+|: 1.
+
+You: Do you have your new code saved somewhere?
+Dwight: No, are you stupid, Temp? I never write down any code. I have e n c r y p t e d it.
+You: So why don't you d e c r y p t it?
+Dwight: Because I have forgotten how I encrypted it... I have my notes here, though.
+Dwight: I will tell you first numbers of a sequence and you have to find the next element. This is going to be a part of the code.
+
+Find the next element: 1, 2, 4, 8, 16, ...
+HINT: type '32.' or type 'kick.' to kick off the door (Michael is not going to be happy about it...)
+|: 32.
+
+Find the next element: 1, 1, 2, 3, 5, 8, ...
+OR: Type 'kick.' to kick off the door (Michael is not going to be happy about it...)
+|: 13.
+
+Find the next element: 1, 4, 9, 16, 25, ...
+OR: Type 'kick.' to kick off the door (Michael is not going to be happy about it...)
+|: 36.
+
+Find the next element: 1, 32, 81, 64, 25, ...
+OR: Type 'kick.' to kick off the door (Michael is not going to be happy about it...)
+|: 6.
+
+You hear some clicking and cracking and, to your surprise, the bathroom door opens and you see Dwight coming out from the bathroom
+Dwight: Did I forgot the code for real? FALSE. I was just checking whether you have basic math skills, Temp.
+Dwight: Here you have my reference, but don't imagine that you have proved yourself useful.
+Dwight gives you a sheet of paper with his signature and then moves to his desk in openspace. The bathroom is open now.
+true.
+
+?- look.
+Some toilets, sinks, and rather unhealthy smell. The toilet paper seems to be missing as ususal. Nothing too interesting here.
+You can go back to the 'kitchen' from here
+true.
+
+?- go(kitchen).
+
+You are in the kitchen
+There is a coffee machine, some tea, a kettle, and some jelly powder.
+Maybe it will be useful later...
+You can go to the 'break_room', 'bathroom' or to the 'openspace' from here.
+true.
+
+?- go(openspace).
+
+You are in the openspace
+You can go to the 'kitchen', 'dwight_desk', 'creed_desk' and 'michael_room' from here
+true.
+
+?- inventory.
+Creed's reference
+Jim's reference
+Dwight's reference
+Coupon to the vending machine (hint: type 'coupon.' to have a look)
+
+true.
+
+?- go(michael_room).
+
+You are in the Michael's room
+(HINT: michael.)
+You can go back to the 'openspace' from here
+true.
+
+?- michael.
+
+Michael: Okay, what do we have here? Hmm, okay. Fantastic! I see that each of my top three employees has given you a positive review, I'm impressed! Thank you for this wonderful day and welcome aboard the company! That's all for today, go home and celebrate the success, and see you tomorrow morning. Take care!
+
+THANKS FOR PLAYING

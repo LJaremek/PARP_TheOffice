@@ -18,7 +18,7 @@
 
 
 describe(dwight_desk) :-
-    write("You are in the Dwight desk"), nl,
+    write("You are near the Dwight desk"), nl,
     write("You can go to the 'openspace' from here"), nl,
 
     (dwight_drawer_lock ->
@@ -46,7 +46,7 @@ describe(dwight_desk) :-
     ),
 
     (dwight_stapler_in_jelly ->
-        write("The jelly stapler is in the Dwight desk dewar. Good job!"), nl,
+        write("The jelly stapler is in the Dwight desk drawer. Good job!"), nl,
         write("Jim gave me his reference."), nl,
         write("Michael will be proud of me when he sees this!")
         ;
@@ -87,6 +87,9 @@ broken_code :-
 
 put_jelly_stapler :-
     write("Now the jelly stapler is in the Dwight drawer."), nl,
+    write("Jim: The jelly stapler is in the Dwight desk drawer. Good job!"), nl,
+    write("Jim gave me his reference."), nl,
+    write("Michael will be proud of me when he sees this!"),
     retractall(dwight_stapler_out_clear),
     assert(dwight_stapler_in_jelly),
     retractall(holding(stapler_in_jelly)),

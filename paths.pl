@@ -3,6 +3,8 @@ path(room, s, openspace).
 
 path(openspace, w, bathroom).
 
+path(elevator, openspace).
+
 path(openspace, kitchen).
 path(kitchen, openspace).
 path(openspace, room).

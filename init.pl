@@ -33,6 +33,7 @@
 % load all locations
 :-
     ensure_loaded(locations/room),
+    ensure_loaded(locations/elevator),
     ensure_loaded(locations/openspace),
     ensure_loaded(locations/kitchen),
     ensure_loaded(locations/bathroom),
@@ -51,8 +52,9 @@
 :- ensure_loaded(actions/start).
 :- ensure_loaded(actions/take).
 
-% set starting location to openspace
-i_am_at(openspace).
+% set starting location
+i_am_at(elevator).
+% i_am_at(openspace).
 % i_am_at(break_room).
 % i_am_at(creed_desk).
 % i_am_at(bathroom).

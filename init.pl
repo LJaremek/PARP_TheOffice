@@ -40,7 +40,8 @@
     ensure_loaded(locations/break_room),
     ensure_loaded(locations/conference_room),
     ensure_loaded(locations/dwight_box),
-    ensure_loaded(locations/creed_desk).
+    ensure_loaded(locations/creed_desk),
+    ensure_loaded(locations/michael_room).
 
 % load all actions
 :- ensure_loaded(actions/drop).

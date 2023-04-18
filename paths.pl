@@ -23,3 +23,6 @@ path(break_room, kitchen).
 
 path(openspace, conference_room).
 path(conference_room, openspace).
+
+path(openspace, michael_room).
+path(michael_room, openspace).

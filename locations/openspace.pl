@@ -1,8 +1,8 @@
 % objects in the location
-at(stapler, openspace).
+% at(stapler, openspace).  % This is a example only
 
 :- multifile describe/1.
 
 describe(openspace) :-
     write("You are in the openspace"), nl,
-    write("You can go to the kitchen from here"), !.
+    write("You can go to the 'kitchen', 'dwight_box' and 'creed_desk' from here"), !.

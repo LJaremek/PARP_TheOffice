@@ -30,6 +30,7 @@ talk :-
         (grape_soda ->
             nl,
             write("Creed: Hi kid, I see you have my Grape Soda, nice job!"), nl,
+            write("Creed: I'm giving you a great review!"), nl,
             retractall(grape_soda),
             retractall(holding(soda)),
             assert(creed_quest_done_full),
@@ -40,6 +41,7 @@ talk :-
             not(creed_quest_done_half),
             nl,
             write("Creed: It's not grape soda but it will do the thing, thanks kid!"), nl,
+            write("Creed: I'm giving you a pretty good review!"), nl,
             retractall(strange_soda),
             retractall(holding(strange_soda)),
             assert(creed_quest_done_half),

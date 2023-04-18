@@ -46,7 +46,10 @@ describe(dwight_desk) :-
 
     (dwight_stapler_in_jelly ->
         write("The jelly stapler is in the Dwight desk dewar. Good job!"), nl,
-        write("Jim gave me a confirmation of completing the task.")
+        write("Jim gave me a review of completing the task."), nl,
+        write("Jim will be proud of me when he sees this!")
+        ;
+        true
     ).
 
 

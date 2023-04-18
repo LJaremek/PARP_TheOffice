@@ -24,6 +24,10 @@
 % These predicates are initialised with false
 :-
     % general
+    % assert(dwight_stapler_in_jelly),
+    % assert(creed_quest_done_full),
+    % retractall(bathroom_locked),
+
     retractall(at(_, _)),
     retractall(i_am_at(_)),
     retractall(alive(_)).
@@ -33,13 +37,15 @@
 % load all locations
 :-
     ensure_loaded(locations/room),
+    ensure_loaded(locations/elevator),
     ensure_loaded(locations/openspace),
     ensure_loaded(locations/kitchen),
     ensure_loaded(locations/bathroom),
     ensure_loaded(locations/break_room),
     ensure_loaded(locations/conference_room),
     ensure_loaded(locations/dwight_box),
-    ensure_loaded(locations/creed_desk).
+    ensure_loaded(locations/creed_desk),
+    ensure_loaded(locations/michael_room).
 
 % load all actions
 :- ensure_loaded(actions/drop).
@@ -51,8 +57,9 @@
 :- ensure_loaded(actions/start).
 :- ensure_loaded(actions/take).
 
-% set starting location to openspace
-i_am_at(openspace).
+% set starting location
+i_am_at(elevator).
+% i_am_at(openspace).
 % i_am_at(break_room).
 % i_am_at(creed_desk).
 % i_am_at(bathroom).

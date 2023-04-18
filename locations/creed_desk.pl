@@ -10,7 +10,7 @@ creed_quest_done_half/0.
 describe(creed_desk) :-
     write("You see Creed playing solitaire on his computer while eating an apple..."), nl,
     write("(HINT: talk.)"), nl,
-    write("You can go back to openspace from here.").
+    write("You can go back to 'openspace' from here.").
 
 talk :-
     ((creed_quest_done_full ; creed_quest_done_half) ->

@@ -1,4 +1,4 @@
-:- multifile describe/1, bathroom_locked/0, i_am_at/1, go/1.
+:- multifile describe/1, bathroom_locked/0, i_am_at/1, go/1, door_destroyed/0.
 
 % these predicates are initialised as false
 :-

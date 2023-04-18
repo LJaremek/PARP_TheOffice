@@ -24,6 +24,10 @@
 % These predicates are initialised with false
 :-
     % general
+    % assert(dwight_stapler_in_jelly),
+    % assert(creed_quest_done_full),
+    % retractall(bathroom_locked),
+
     retractall(at(_, _)),
     retractall(i_am_at(_)),
     retractall(alive(_)).

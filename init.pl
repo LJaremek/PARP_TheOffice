@@ -13,7 +13,13 @@
     
     dwight_stapler_out_clear/0,
     dwight_stapler_out_jelly/0,
-    dwight_stapler_in_jelly/0.
+    dwight_stapler_in_jelly/0,
+
+    creed_quest_started/0,
+    grape_soda/0,
+    strange_soda/0,
+    creed_quest_done_full/0,
+    creed_quest_done_half/0.
 
 % These predicates are initialised with false
 :-
@@ -21,8 +27,6 @@
     retractall(at(_, _)),
     retractall(i_am_at(_)),
     retractall(alive(_)).
-
-
 
 :- ensure_loaded(paths).
 
@@ -32,9 +36,10 @@
     ensure_loaded(locations/openspace),
     ensure_loaded(locations/kitchen),
     ensure_loaded(locations/bathroom),
+    ensure_loaded(locations/break_room),
     ensure_loaded(locations/conference_room),
-    ensure_loaded(locations/dwight_box).
-
+    ensure_loaded(locations/dwight_box),
+    ensure_loaded(locations/creed_desk).
 
 % load all actions
 :- ensure_loaded(actions/drop).
@@ -48,4 +53,6 @@
 
 % set starting location to openspace
 i_am_at(openspace).
-
+% i_am_at(break_room).
+% i_am_at(creed_desk).
+% i_am_at(bathroom).

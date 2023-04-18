@@ -1,4 +1,4 @@
-:- multifile describe/1, bathroom_locked/0, i_am_at/1, go_to/1.
+:- multifile describe/1, bathroom_locked/0, i_am_at/1, go/1.
 
 % these predicates are initialised as false
 :-
@@ -41,9 +41,8 @@ decide_wheter_to_start_dwight_quest :-
 
 answer(Choice) :-
     Choice == 1, !, dwight_quest;
-    Choice == 2, !, nl, go_to(openspace);
+    Choice == 2, !, nl, go(kitchen);
     write('Not a valid dialogue option'), nl, decide_wheter_to_start_dwight_quest.
-
 
 dwight_quest :-
     display_dwight_quest_opening,

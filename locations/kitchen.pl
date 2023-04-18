@@ -3,8 +3,8 @@
 
 describe(kitchen) :-
     write("You are in the kitchen"), nl,
-    write("You can go to the 'openspace' or to the 'bathroom' from here"), nl,
-    write("And... You can make a jelly for free!!"), nl,
+    write("You can go to the 'break_room', 'bathroom' or to the 'openspace' from here"), nl,
+    write("And... You can make a jelly for free!!"),
 
     (dwight_stapler_out_clear ->
         write("Do you want to put the Dwight stapler to the jelly?"), nl,

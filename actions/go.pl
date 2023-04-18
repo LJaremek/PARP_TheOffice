@@ -7,7 +7,7 @@ go(Room) :-
         path(Here, Room),
         retract(i_am_at(Here)),
         assert(i_am_at(Room)),
-        !, look.
+        !, nl, look.
 
 go(_) :-
         write('There is not such place here').

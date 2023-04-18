@@ -41,19 +41,16 @@
     ensure_loaded(locations/bathroom),
     ensure_loaded(locations/break_room),
     ensure_loaded(locations/conference_room),
-    ensure_loaded(locations/dwight_box),
+    ensure_loaded(locations/dwight_desk),
     ensure_loaded(locations/creed_desk),
     ensure_loaded(locations/michael_room).
 
 % load all actions
-:- ensure_loaded(actions/drop).
 :- ensure_loaded(actions/finish).
 :- ensure_loaded(actions/go).
 :- ensure_loaded(actions/instructions).
 :- ensure_loaded(actions/look).
-:- ensure_loaded(actions/notice_objects).
 :- ensure_loaded(actions/start).
-:- ensure_loaded(actions/take).
 
 % set starting location
 i_am_at(elevator).

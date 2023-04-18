@@ -6,7 +6,6 @@ strange_soda/0,
 creed_quest_done_full/0,
 creed_quest_done_half/0.
 
-
 describe(creed_desk) :-
     write("You see Creed playing solitaire on his computer while eating an apple..."), nl,
     write("(HINT: talk.)"), nl,
@@ -78,7 +77,8 @@ display_creed_quest_opening :-
     write("       P 034 015 092"), nl,
     write("       R 059 041 065"), nl,
     write("       S 026 073 087"), nl, nl,
-    write("As I said: I would prefer the Grape Soda, but I don't know how to order it using this strange coupon..."), nl.
+    write("Creed: As I said, I would prefer the Grape Soda, but I don't know how to order it using this strange coupon..."), nl,
+    write("Creed: When you will figure out the proper code, go the the break room and type it into the vending machine.").
 
 creed_quest :-
     display_creed_quest_opening,

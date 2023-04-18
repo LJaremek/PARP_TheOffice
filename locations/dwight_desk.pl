@@ -13,7 +13,7 @@
     retractall(dwight_stapler_in_jelly).
 
 
-describe(dwight_box) :-
+describe(dwight_desk) :-
     write("You are in the Dwight Box"), nl,
     write("You can go to the 'openspace' from here"), nl,
 
@@ -48,11 +48,11 @@ describe(dwight_box) :-
 
 
 break_code :-
-    i_am_at(dwight_box),
+    i_am_at(dwight_desk),
     dwight_drawer_lock,
     try_break_code, !;
 
-    i_am_at(dwight_box),
+    i_am_at(dwight_desk),
     write("The drawer is open.").
 
 

@@ -12,6 +12,7 @@
     retractall(dwight_stapler_out_jelly),
     retractall(dwight_stapler_in_jelly),
     retractall(holding(stapler)),
+    retractall(holding(stapler_in_jelly)),
     retractall(holding(jim_reference))
     .
 
@@ -46,8 +47,8 @@ describe(dwight_desk) :-
 
     (dwight_stapler_in_jelly ->
         write("The jelly stapler is in the Dwight desk dewar. Good job!"), nl,
-        write("Jim gave me a review of completing the task."), nl,
-        write("Jim will be proud of me when he sees this!")
+        write("Jim gave me his reference."), nl,
+        write("Michael will be proud of me when he sees this!")
         ;
         true
     ).

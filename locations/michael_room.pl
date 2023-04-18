@@ -14,7 +14,7 @@ michael :-
     % poor (1/3)
     ((creed_quest_done_half, door_destroyed) ->
         nl,
-        write("Who do we have here? It's our future employee! Welcome! Please show me the reviews from my people. Oh my! What a massacre! I have never seen such bad employee reviews. What was I saying? Oh yes, about your job application. It's very nice, but that's all for today. We will call you back, goodbye. What? No, we don't need your phone number, have a nice day."), nl, end_game
+        write("Michael: Who do we have here? It's our future employee! Welcome! Please show me the reviews from my people. Oh my! What a massacre! I have never seen such bad employee reviews. What was I saying? Oh yes, about your job application. It's very nice, but that's all for today. We will call you back, goodbye. What? No, we don't need your phone number, have a nice day."), nl, end_game
     ;
         true
     ),
@@ -22,7 +22,7 @@ michael :-
     % good (3/3)
     ((creed_quest_done_full, not(door_destroyed)) ->
         nl,
-        write("Okay, what do we have here? Hmm, okay. Fantastic! I see that each of my top three employees has given you a positive review, I'm impressed! Thank you for this wonderful day and welcome aboard the company! That's all for today, go home and celebrate the success, and see you tomorrow morning. Take care!"), nl, end_game
+        write("Michael: Okay, what do we have here? Hmm, okay. Fantastic! I see that each of my top three employees has given you a positive review, I'm impressed! Thank you for this wonderful day and welcome aboard the company! That's all for today, go home and celebrate the success, and see you tomorrow morning. Take care!"), nl, end_game
     ;
         true
     ),

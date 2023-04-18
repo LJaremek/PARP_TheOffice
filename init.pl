@@ -10,7 +10,7 @@
     bathroom_locked/0,
     dwight_quest_done/0,
     door_destroyed/0,
-    
+
     dwight_stapler_out_clear/0,
     dwight_stapler_out_jelly/0,
     dwight_stapler_in_jelly/0,
@@ -19,14 +19,12 @@
     grape_soda/0,
     strange_soda/0,
     creed_quest_done_full/0,
-    creed_quest_done_half/0.
+    creed_quest_done_half/0,
+
+    said_hi/0.
 
 % These predicates are initialised with false
 :-
-    % general
-    % assert(dwight_stapler_in_jelly),
-    % assert(creed_quest_done_full),
-    % retractall(bathroom_locked),
 
     retractall(at(_, _)),
     retractall(i_am_at(_)),

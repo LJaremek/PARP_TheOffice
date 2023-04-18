@@ -7,6 +7,7 @@ describe(kitchen) :-
     write("And... You can make a jelly for free!!"),
 
     (dwight_stapler_out_clear ->
+        nl,
         write("Do you want to put the Dwight stapler to the jelly?"), nl,
         write("HINT: 'jelly_stapler.'")
         ;
@@ -19,7 +20,7 @@ jelly_stapler :-
     dwight_stapler_out_clear,
 
     write("Choose the color of the jelly."), nl,
-    write("HINT: 'red', 'green' or 'blue': "),
+    write("HINT: 'red', 'green' or 'blue': "), nl,
     read(_),
 
     write("Its ready!"), nl, nl,

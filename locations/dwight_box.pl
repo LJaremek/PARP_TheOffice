@@ -1,4 +1,4 @@
-:- multifile describe/1, dwight_stapler_out_clear/0, dwight_stapler_out_jelly/0, dwight_stapler_in_jelly/0.
+:- multifile describe/1, dwight_stapler_out_clear/0, dwight_stapler_out_jelly/0, dwight_stapler_in_jelly/0, i_am_at/1.
 
 
 % these predicates are initialised as true
@@ -18,7 +18,7 @@ describe(dwight_box) :-
     write("You can go to the 'openspace' from here"), nl,
 
     (dwight_drawer_lock ->
-        write("Jim told me to prank Dwight."), nl, 
+        write("Jim told me to prank Dwight."), nl,
         write("You see his desk with the drawer closed with a four-digit lock."), nl,
         write("Maybe can I breake the code?. There should be something!"), nl,
         write("HINT: 'break_code.'")
@@ -57,7 +57,7 @@ break_code :-
 
 
 try_break_code :-
-    write("Type the code: "),
+    write("Type the code: "), nl,
     read(Dwightcode),
     check_code(Dwightcode).
 
@@ -65,11 +65,13 @@ try_break_code :-
 check_code(Dwightcode) :-
     Dwightcode > 4510,  !, write("It's not that number. I think the code number is less..."), nl, try_break_code;
     Dwightcode < 4510,  !, write("It's not that number. I think the code number is bigger..."), nl, try_break_code;
-    Dwightcode == 4510, !, breaked_code.
+    Dwightcode == 4510, !, broken_code.
 
 
-breaked_code :-
-    write("I broke the code!"), nl,
+broken_code :-
+    nl,
+    write("I have broken the code!"), nl,
+    write("There is a stapler here... I'm taking it!"), nl,
     write("Now I have to put it to jelly in the kitchen."), nl,
     retractall(dwight_drawer_lock),
     assert(dwight_stapler_out_clear).

@@ -33,4 +33,6 @@ jelly_stapler :-
     write("Now I can put back the stapler to the drawer."), nl,
 
     retractall(dwight_stapler_out_clear),
-    assert(dwight_stapler_out_jelly).
+    assert(dwight_stapler_out_jelly),
+    retractall(holding(stapler)),
+    assert(holding(stapler_in_jelly)).

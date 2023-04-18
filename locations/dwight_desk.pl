@@ -10,7 +10,10 @@
 :-
     retractall(dwight_stapler_out_clear),
     retractall(dwight_stapler_out_jelly),
-    retractall(dwight_stapler_in_jelly).
+    retractall(dwight_stapler_in_jelly),
+    retractall(holding(stapler)),
+    retractall(holding(jim_reference))
+    .
 
 
 describe(dwight_desk) :-
@@ -74,10 +77,13 @@ broken_code :-
     write("There is a stapler here... I'm taking it!"), nl,
     write("Now I have to put it to jelly in the kitchen."), nl,
     retractall(dwight_drawer_lock),
-    assert(dwight_stapler_out_clear).
+    assert(dwight_stapler_out_clear),
+    assert(holding(stapler)).
 
 
 put_jelly_stapler :-
     write("Now the jelly stapler is in the Dwight drawer."), nl,
     retractall(dwight_stapler_out_clear),
-    assert(dwight_stapler_in_jelly).
+    assert(dwight_stapler_in_jelly),
+    retractall(holding(stapler_in_jelly)),
+    assert(holding(jim_reference)).

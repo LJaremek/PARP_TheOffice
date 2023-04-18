@@ -6,6 +6,10 @@ strange_soda/0,
 creed_quest_done_full/0,
 creed_quest_done_half/0.
 
+:-
+    retractall(holding(creed_reference)),
+    retractall(holding(coupon)).
+
 describe(creed_desk) :-
     write("You see Creed playing solitaire on his computer while eating an apple..."), nl,
     write("(HINT: talk.)"), nl,
@@ -27,21 +31,25 @@ talk :-
             nl,
             write("Creed: Hi kid, I see you have my Grape Soda, nice job!"), nl,
             retractall(grape_soda),
-            assert(creed_quest_done_full)
+            retractall(holding(soda)),
+            assert(creed_quest_done_full),
+            assert(holding(creed_reference))
         ;
             strange_soda,
             not(creed_quest_done_full),
             not(creed_quest_done_half),
-            nl, 
+            nl,
             write("Creed: It's not grape soda but it will do the thing, thanks kid!"), nl,
             retractall(strange_soda),
-            assert(creed_quest_done_half)
+            retractall(holding(strange_soda)),
+            assert(creed_quest_done_half),
+            assert(holding(creed_reference))
             ; !
         ),
 
         not(creed_quest_done_full),
         not(creed_quest_done_half),
-        nl, 
+        nl,
         write("Creed: *plays solitaire without even noticing you*"), nl,
         write("(HINT: go(openspace).)"), nl
         ;
@@ -78,7 +86,9 @@ display_creed_quest_opening :-
     write("       R 059 041 065"), nl,
     write("       S 026 073 087"), nl, nl,
     write("Creed: As I said, I would prefer the Grape Soda, but I don't know how to order it using this strange coupon..."), nl,
-    write("Creed: When you will figure out the proper code, go the the break room and type it into the vending machine.").
+    write("Creed: When you will figure out the proper code, go the the break room and type it into the vending machine."),
+    assert(holding(coupon)).
+
 
 creed_quest :-
     display_creed_quest_opening,

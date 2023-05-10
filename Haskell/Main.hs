@@ -10,57 +10,21 @@ module NewMain where
 import Data.IORef
 import GHC.IO.Handle (hFlush)
 import System.IO (stdout)
+import Data.Maybe
+
+import Look
+import Go
 
 import Elevator
 import Rooms
 import Game
-
-
+import Bathroom
 
 readCommand :: IO String
 readCommand = do
     putStr "> "
     hFlush stdout
     getLine
-
--- Define a function to change the current location
-go :: Game -> Room -> IO Game
-go (Game iamAt saidHi jimQuest creedQuest dwightQuest) room = do
-  let here = iamAt
-  if here == room
-    then do
-      putStrLn "You are already there."
-      return (Game iamAt saidHi jimQuest creedQuest dwightQuest)
-    else do
-      can_go <- path here room
-      if can_go
-        then do
-          let newIamAt = room
-          let newGame = (Game room saidHi jimQuest creedQuest dwightQuest)
-          putStrLn ""
-          look newGame
-          return newGame
-        else do
-          putStrLn "There is no path to that place."
-          return (Game iamAt saidHi jimQuest creedQuest dwightQuest)
-
--- Define a function to describe the current location
-look :: Game -> IO ()
-look (Game iamAt saidHi jimQuest creedQuest dwightQuest) = do
-  let place = iamAt
-  describe place
-  putStrLn ""
-
-
-
-
--- Define a function for the user to say hi
-hi_func :: Game -> IO Game
-hi_func (Game iamAt saidHi jimQuest creedQuest dwightQuest) = do
-  putStrLn ""
-  putStrLn "Michael: During your internship you should obtain 3 (hopefully positive) reviews from other employees. Look around the office and see what you can do. When you are ready come to my room and I will take a look. Good luck!"
-  putStrLn "(HINT: enter. to enter the office)"
-  return (Game iamAt True jimQuest creedQuest dwightQuest)
 
 -- Define a function for the user to enter the office
 enter_func :: Game -> IO Game
@@ -96,15 +60,21 @@ gameLoop game = do
                 "enter" -> do
                   newGame <- enter_func game
                   gameLoop newGame
+                "knock" -> do
+                  newGame <- doDwightQuest game
+                  gameLoop newGame
+                "go" -> do
+                  newGame <- tryGo game cmdArgs
+                  gameLoop newGame
                 "quit" -> return game
                 ":q" -> return game
                 "exit" -> return game
                 _ -> do
                     gameLoop game
 
--- Define the main program
 
-main = do
+-- Define the main program
+start = do
   let game = Game { iamAt = Elevator
                   , saidHi = False
                   , jimQuest = StaplerInDesk

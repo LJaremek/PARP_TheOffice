@@ -7,11 +7,13 @@ data JimQuest = StaplerInDesk
               | StaplerOutClear
               | StaplerOutJelly
               | StaplerInJelly deriving Eq
+
 data CreedQuest = CreedQuestNotStarted
                 | GrapeSoda
                 | StrangeSoda
                 | CreedQuestDoneHalf
                 | CreedQuestDoneFull deriving Eq
+
 data DwightQuest = DwightQuestNotStarted {-bathroom locked-}
                  | DwightQuestDoneHalf {-door destroyed-}
                  | DwightQuestDoneFull deriving Eq

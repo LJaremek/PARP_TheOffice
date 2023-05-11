@@ -8,23 +8,18 @@ Ale chyba chuj z tym
 module NewMain where
 
 import Data.IORef
-import GHC.IO.Handle (hFlush)
-import System.IO (stdout)
+
 import Data.Maybe
 
 import Look
 import Go
+import ReadCommand
 
 import Elevator
 import Rooms
 import Game
 import Bathroom
 
-readCommand :: IO String
-readCommand = do
-    putStr "> "
-    hFlush stdout
-    getLine
 
 -- Define a function for the user to enter the office
 enter_func :: Game -> IO Game
@@ -54,6 +49,16 @@ gameLoop game = do
             let cmdName = head splitCmd
             let cmdArgs = tail splitCmd
             case cmdName of
+                "instructions" -> do
+                  putStrLn "TODO"
+                  gameLoop game
+                "look" -> do
+                  look game
+                  gameLoop game
+                "go" -> do
+                  newGame <- tryGo game cmdArgs
+                  look newGame
+                  gameLoop newGame
                 "hi" -> do
                   newGame <- hi_func game
                   gameLoop newGame
@@ -62,9 +67,7 @@ gameLoop game = do
                   gameLoop newGame
                 "knock" -> do
                   newGame <- doDwightQuest game
-                  gameLoop newGame
-                "go" -> do
-                  newGame <- tryGo game cmdArgs
+                  look newGame
                   gameLoop newGame
                 "quit" -> return game
                 ":q" -> return game

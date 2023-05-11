@@ -4,7 +4,6 @@ import Data.Maybe
 
 import Game
 import Rooms
-import Look
 
 -- Define a function to change the current location
 go :: Game -> Room -> IO Game
@@ -21,7 +20,6 @@ go (Game iamAt saidHi jimQuest creedQuest dwightQuest) room = do
           let newIamAt = room
           let newGame = (Game room saidHi jimQuest creedQuest dwightQuest)
           putStrLn ""
-          look newGame
           return newGame
         else do
           putStrLn "There is no path to that place."

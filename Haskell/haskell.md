@@ -1,5 +1,11 @@
 ## Praca z językiem Haskell
-### Rozwijanie programu
+### Uruchamianie gry
+```
+ghci
+:l Main.hs
+start
+```
+### Rozwijanie programu (to jest w materiałach z Moodle)
 1. W katalogu roboczym utwórz plik tekstowy o rozszerzeniu .hs (np.
    main.hs ) z kodem, np.:
 ```

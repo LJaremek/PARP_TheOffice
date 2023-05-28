@@ -87,8 +87,10 @@ doDwightTasks localState = do
 
 
 task0 (LocalDwightQuestState isTask0Correct isTask1Correct isTask2Correct isTask3Correct isDoorDestroyed) = do
+  putStrLn ""
   putStrLn "Find the next element: 1, 2, 4, 8, 16, ..."
   putStrLn "OR: Type 'kick' to kick off the door (Michael is not going to be happy about it...) "
+  putStrLn ""
   cmd <- readCommand
   let splitCmd = words cmd
   if null splitCmd
@@ -109,8 +111,10 @@ task1 (LocalDwightQuestState isTask0Correct isTask1Correct isTask2Correct isTask
     then do
       return (LocalDwightQuestState isTask0Correct isTask1Correct isTask2Correct isTask3Correct isDoorDestroyed)
     else do
+      putStrLn ""
       putStrLn "Find the next element: 1, 1, 2, 3, 5, 8, ..."
       putStrLn "OR: Type 'kick' to kick off the door (Michael is not going to be happy about it...) "
+      putStrLn ""
       cmd <- readCommand
       let splitCmd = words cmd
       if null splitCmd
@@ -131,8 +135,10 @@ task2 (LocalDwightQuestState isTask0Correct isTask1Correct isTask2Correct isTask
     then do
       return (LocalDwightQuestState isTask0Correct isTask1Correct isTask2Correct isTask3Correct isDoorDestroyed)
     else do
+      putStrLn ""
       putStrLn "Find the next element: 1, 4, 9, 16, 25, ..."
       putStrLn "OR: Type 'kick' to kick off the door (Michael is not going to be happy about it...) "
+      putStrLn ""
       cmd <- readCommand
       let splitCmd = words cmd
       if null splitCmd
@@ -153,8 +159,10 @@ task3 (LocalDwightQuestState isTask0Correct isTask1Correct isTask2Correct isTask
     then do
       return (LocalDwightQuestState isTask0Correct isTask1Correct isTask2Correct isTask3Correct isDoorDestroyed)
     else do
+      putStrLn ""
       putStrLn "Find the next element: 1, 32, 81, 64, 25, ..."
       putStrLn "OR: Type 'kick' to kick off the door (Michael is not going to be happy about it...) "
+      putStrLn ""
       cmd <- readCommand
       let splitCmd = words cmd
       if null splitCmd
@@ -171,6 +179,7 @@ task3 (LocalDwightQuestState isTask0Correct isTask1Correct isTask2Correct isTask
               return (LocalDwightQuestState isTask0Correct isTask1Correct isTask2Correct False isDoorDestroyed)
 
 displayDwightInitialDialogue = do
+  putStrLn ""
   putStrLn "Dwight (from the inside): Hey, wait! Temp, is that you? You have to help me. I've been locked inside."
   putStrLn "Dwight: If you help me and tell nothing to Jim I will give you my recommendation."
   putStrLn "You: How on Earth are you locked inside?"
@@ -185,12 +194,12 @@ displayDwightInitialDialogue = do
   putStrLn ""
 
 displayDwightQuestOpening = do
+  putStrLn ""
   putStrLn "You: Do you have your new code saved somewhere?"
   putStrLn "Dwight: No, are you stupid, Temp? I never write down any code. I have e n c r y p t e d it."
   putStrLn "You: So why don't you d e c r y p t it?"
   putStrLn "Dwight: Because I have forgotten how I encrypted it... I have my notes here, though."
   putStrLn "Dwight: I will tell you first numbers of a sequence and you have to find the next element. This is going to be a part of the code."
-  putStrLn ""
 
 displayDwightFinalDialogueDoorDestroyed = do
   putStrLn ""

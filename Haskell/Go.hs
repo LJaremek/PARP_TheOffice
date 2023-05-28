@@ -22,6 +22,7 @@ go (Game iamAt saidHi jimQuest creedQuest dwightQuest) room = do
           let newGame = (Game room saidHi jimQuest creedQuest dwightQuest)
           return newGame
         else do
+          putStrLn ""
           putStrLn "There is no path to that place."
           return (Game iamAt saidHi jimQuest creedQuest dwightQuest)
 

@@ -48,7 +48,9 @@ gameLoop game = do
     let splitCmd = words cmd
     if null splitCmd
         then do
+            putStrLn ""
             putStrLn "Type 'instructions' for a list of commands."
+            putStrLn ""
             gameLoop game
         else do
             let cmdName = head splitCmd

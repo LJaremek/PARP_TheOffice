@@ -20,6 +20,7 @@ import Elevator
 import Rooms
 import Game
 import Bathroom
+import MichaelRoom
 
 
 -- Define a function for the user to enter the office
@@ -70,6 +71,9 @@ gameLoop game = do
                 "knock" -> do
                   newGame <- doDwightQuest game
                   look newGame
+                  gameLoop newGame
+                "michael" -> do
+                  newGame <- talkToMichael game
                   gameLoop newGame
                 "quit" -> return game
                 ":q" -> return game

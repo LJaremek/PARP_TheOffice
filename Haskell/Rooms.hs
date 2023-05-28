@@ -22,6 +22,7 @@ instance Read Room where
     readsPrec _ "bathroom" = [(Bathroom, "")]
     readsPrec _ "conference_room" = [(ConferenceRoom, "")]
     readsPrec _ "michael_room" = [(MichaelRoom, "")]
+    readsPrec _ "creed_desk" = [(CreedDesk, "")]
     readsPrec _ "break_room" = [(BreakRoom, "")]
 
     readsPrec _ _ = []

@@ -28,24 +28,26 @@ talkCreed (Game iamAt saidHi jimQuest creedQuest dwightQuest) = do
             putStrLn ""
             putStrLn "Creed: Hi kid, I see you have my Grape Soda, nice job!"
             putStrLn "Creed: I'm giving you a great review!"
+            putStrLn ""
             return (Game iamAt saidHi jimQuest CreedQuestDoneFull dwightQuest)
     else if (creedQuest == StrangeSoda)
         then do
             putStrLn ""
             putStrLn "Creed: It's not the grape soda but it will do the thing, thanks kid!"
             putStrLn "Creed: I'm giving you a pretty good review!"
+            putStrLn ""
             return (Game iamAt saidHi jimQuest CreedQuestDoneHalf dwightQuest)
     else do
         putStrLn "Creed plays solitaire without even noticing you"
         putStrLn "(HINT: go openspace)"
+        putStrLn ""
         return (Game iamAt saidHi jimQuest creedQuest dwightQuest)
 
 decideCreedQuest :: Game -> IO Game
 decideCreedQuest (Game iamAt saidHi jimQuest creedQuest dwightQuest) = do
-    putStrLn "Enter number of dialogue option:"
+    putStrLn "Enter the number of selected dialogue option:"
     putStrLn "  1 - Ok, I will do it. (start quest)"
     putStrLn "  2 - Sorry, but I don't have time right now. (leave)"
-    putStrLn ""
 
     input <- getLine
     if (input == "1")

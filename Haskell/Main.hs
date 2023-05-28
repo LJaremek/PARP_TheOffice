@@ -22,6 +22,7 @@ import Game
 import Bathroom
 import MichaelRoom
 import CreedDesk
+import BreakRoom
 
 
 -- Define a function for the user to enter the office
@@ -81,6 +82,9 @@ gameLoop game = do
                   gameLoop newGame
                 "talk" -> do
                   newGame <- talkCreed game
+                  gameLoop newGame
+                "machine" -> do
+                  newGame <- machine game
                   gameLoop newGame
                 "quit" -> return game
                 ":q" -> return game

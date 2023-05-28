@@ -4,6 +4,7 @@ import Rooms
 import Game
 
 describe = do
+   putStrLn ""
    putStrLn "You step into the elevator and when the doors are closing Michael (your boss) rushes inside."
    putStrLn ""
    putStrLn "Michael: Hi, you must be our new intern, welcome to Dunder Mifflin!"

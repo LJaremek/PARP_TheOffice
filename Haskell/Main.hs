@@ -14,6 +14,7 @@ import Data.Maybe
 import Look
 import Go
 import ReadCommand
+import Instructions
 
 import Elevator
 import Rooms
@@ -30,6 +31,7 @@ enter_func (Game iamAt saidHi jimQuest creedQuest dwightQuest) = do
       putStrLn ""
       putStrLn "As you step out of the elevator you enter the office openspace..."
       putStrLn "You see Jim approaching you with a big smile..."
+      putStrLn ""
       putStrLn "Jim: Hi, I'm Jim! I'm glad to have the opportunity to assign to you something useful that will prove your competence. Dwight is working in our office, he's my best friend who LOVES jelly and staplers. Play him a funny prank, and I'll sign off on your task completion. It's worth checking out his desk in the openspace. Good luck!"
       newGame <- go (Game iamAt saidHi jimQuest creedQuest dwightQuest) Openspace
       return newGame
@@ -50,7 +52,7 @@ gameLoop game = do
             let cmdArgs = tail splitCmd
             case cmdName of
                 "instructions" -> do
-                  putStrLn "TODO"
+                  instructions
                   gameLoop game
                 "look" -> do
                   look game
@@ -84,6 +86,5 @@ start = do
                   , creedQuest = CreedQuestNotStarted
                   , dwightQuest = DwightQuestNotStarted
                   }
-  putStrLn "Welcome to Dunder Mifflin!"
   look game
   gameLoop game

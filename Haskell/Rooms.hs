@@ -2,7 +2,7 @@ module Rooms where
 
 import Text.Read (readMaybe)
 
-data Room = Elevator | Openspace | Kitchen | Bathroom | ConferenceRoom | MichaelRoom | CreedDesk deriving Eq
+data Room = Elevator | Openspace | Kitchen | Bathroom | ConferenceRoom | MichaelRoom | CreedDesk | BreakRoom deriving Eq
 
 -- in case of need to print the name of the room
 instance Show Room where
@@ -13,6 +13,7 @@ instance Show Room where
   show ConferenceRoom = "conference_room"
   show MichaelRoom = "michael_room"
   show CreedDesk = "creed_desk"
+  show BreakRoom = "break_room"
 
 -- mapping name of the room to the room (useful in reading user input)
 instance Read Room where
@@ -21,7 +22,7 @@ instance Read Room where
     readsPrec _ "bathroom" = [(Bathroom, "")]
     readsPrec _ "conference_room" = [(ConferenceRoom, "")]
     readsPrec _ "michael_room" = [(MichaelRoom, "")]
-    readsPrec _ "creed_desk" = [(CreedDesk, "")]
+    readsPrec _ "break_room" = [(BreakRoom, "")]
 
     readsPrec _ _ = []
 
@@ -44,6 +45,10 @@ path Openspace Kitchen = return True
 
 path Kitchen Bathroom = return True
 path Bathroom Kitchen = return True
+
+path Kitchen BreakRoom = return True
+path BreakRoom Kitchen = return True
+
 path _ _ = return False
 
 

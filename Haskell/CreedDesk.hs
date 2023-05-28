@@ -43,20 +43,26 @@ talkCreed (Game iamAt saidHi jimQuest creedQuest dwightQuest) = do
 decideCreedQuest :: Game -> IO Game
 decideCreedQuest (Game iamAt saidHi jimQuest creedQuest dwightQuest) = do
     putStrLn "Enter number of dialogue option:"
-    putStrLn "1 - Ok, I will do it. (start quest)"
-    putStrLn "2 - Sorry, but I don't have time right now. (leave)"
+    putStrLn "  1 - Ok, I will do it. (start quest)"
+    putStrLn "  2 - Sorry, but I don't have time right now. (leave)"
+    putStrLn ""
+
     input <- getLine
     if (input == "1")
         then do
+            putStrLn ""
             putStrLn "Creed: Cool beans!"
             newGame <- displayCreedQuestOpening (Game iamAt saidHi jimQuest creedQuest dwightQuest)
             return newGame
     else if (input == "2")
         then do
+            putStrLn ""
             putStrLn "Creed: Ok..."
+            putStrLn ""
             return (Game iamAt saidHi jimQuest creedQuest dwightQuest)
     else
         do
+            putStrLn ""
             putStrLn "(Not a valid dialogue option)"
             putStrLn ""
             newGame <- decideCreedQuest (Game iamAt saidHi jimQuest creedQuest dwightQuest)
@@ -75,4 +81,5 @@ displayCreedQuestOpening (Game iamAt saidHi jimQuest creedQuest dwightQuest) = d
     putStrLn ""
     putStrLn "Creed: As I said, I would prefer the Grape Soda, but I don't know how to order it using this strange coupon..."
     putStrLn "Creed: When you will figure out the proper code, go to the break room and type it into the vending machine which is standing there."
+    putStrLn ""
     return (Game iamAt saidHi jimQuest CreedQuestInProgress dwightQuest)

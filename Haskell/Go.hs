@@ -11,6 +11,7 @@ go (Game iamAt saidHi jimQuest creedQuest dwightQuest) room = do
   let here = iamAt
   if here == room
     then do
+      putStrLn ""
       putStrLn "You are already there."
       return (Game iamAt saidHi jimQuest creedQuest dwightQuest)
     else do
@@ -19,7 +20,6 @@ go (Game iamAt saidHi jimQuest creedQuest dwightQuest) room = do
         then do
           let newIamAt = room
           let newGame = (Game room saidHi jimQuest creedQuest dwightQuest)
-          putStrLn ""
           return newGame
         else do
           putStrLn "There is no path to that place."

@@ -14,6 +14,7 @@ import CreedDesk
 look :: Game -> IO ()
 look (Game iamAt saidHi jimQuest creedQuest dwightQuest) = do
   let place = iamAt
+  putStrLn ""
   case place of
     Elevator -> do
       Elevator.describe

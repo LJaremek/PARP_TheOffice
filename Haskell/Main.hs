@@ -35,6 +35,7 @@ enter_func (Game iamAt saidHi jimQuest creedQuest dwightQuest) = do
       putStrLn "You see Jim approaching you with a big smile..."
       putStrLn ""
       putStrLn "Jim: Hi, I'm Jim! I'm glad to have the opportunity to assign to you something useful that will prove your competence. Dwight is working in our office, he's my best friend who LOVES jelly and staplers. Play him a funny prank, and I'll sign off on your task completion. It's worth checking out his desk in the openspace. Good luck!"
+      putStrLn ""
       newGame <- go (Game iamAt saidHi jimQuest creedQuest dwightQuest) Openspace
       return newGame
     else do

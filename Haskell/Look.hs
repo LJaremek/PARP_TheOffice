@@ -8,6 +8,7 @@ import Kitchen
 import Bathroom
 import ConferenceRoom
 import MichaelRoom
+import CreedDesk
 
 -- Define a function to describe the current location
 look :: Game -> IO ()
@@ -26,4 +27,6 @@ look (Game iamAt saidHi jimQuest creedQuest dwightQuest) = do
       ConferenceRoom.describe
     MichaelRoom -> do
       MichaelRoom.describe jimQuest creedQuest dwightQuest -- description depends
+    CreedDesk -> do
+      CreedDesk.describe
   putStrLn ""

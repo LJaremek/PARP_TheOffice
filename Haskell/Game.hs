@@ -9,6 +9,7 @@ data JimQuest = StaplerInDesk
               | StaplerInJelly deriving Eq
 
 data CreedQuest = CreedQuestNotStarted
+                | CreedQuestInProgress
                 | GrapeSoda
                 | StrangeSoda
                 | CreedQuestDoneHalf

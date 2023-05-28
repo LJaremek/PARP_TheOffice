@@ -6,7 +6,7 @@ instructions = do
     putStrLn "Available commands are:"
     putStrLn "start         - start the game"
     putStrLn "instructions  - see this message again"
-    putStrLn "go(Room)      - go to that room"
+    putStrLn "go <room>     - go to that room"
     putStrLn "look          - look around you"
     putStrLn "inventory     - show inventory"
     putStrLn "halt          - end the game and quit"

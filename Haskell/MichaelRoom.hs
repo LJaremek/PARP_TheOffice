@@ -8,20 +8,10 @@ import System.Exit
 
 describe :: JimQuest -> CreedQuest -> DwightQuest -> IO ()
 describe jimQuest creedQuest dwightQuest = do
-  if (
-      (dwightQuest /= DwightQuestDoneHalf && dwightQuest /= DwightQuestDoneFull)
-      ||
-      (jimQuest /= StaplerInJelly)
-      ||
-      (creedQuest /= CreedQuestDoneHalf && creedQuest /= CreedQuestDoneFull)
-    )
-    then do
-        putStrLn "You are in the Michael's room. He is setting at the desk and doing some very important stuff on his computer."
-        putStrLn "(HINT: go openspace.)"
-    else do
-        putStrLn "You are in the Michael's room"
-        putStrLn "(HINT: michael)"
-        putStrLn "You can go back to the 'openspace' from here"
+  putStrLn "You are in the Michael's room."
+  putStrLn "He is setting at the desk and doing some very important stuff on his computer."
+  putStrLn "(HINT: michael)"
+  putStrLn "You can go back to the 'openspace' from here"
 
 talkToMichael :: Game -> IO Game
 talkToMichael (Game iamAt saidHi jimQuest creedQuest dwightQuest) = do

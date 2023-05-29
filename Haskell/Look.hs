@@ -8,6 +8,7 @@ import Kitchen
 import Bathroom
 import ConferenceRoom
 import MichaelRoom
+import DwightDesk
 import CreedDesk
 import BreakRoom
 
@@ -29,6 +30,8 @@ look (Game iamAt saidHi jimQuest creedQuest dwightQuest) = do
       ConferenceRoom.describe
     MichaelRoom -> do
       MichaelRoom.describe jimQuest creedQuest dwightQuest -- description depends
+    DwightDesk -> do
+      DwightDesk.describe
     CreedDesk -> do
       CreedDesk.describe
     BreakRoom -> do

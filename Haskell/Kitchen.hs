@@ -1,6 +1,7 @@
 module Kitchen where
 
 import Game
+import Rooms
 
 describe :: JimQuest -> IO ()
 describe jimQuest = do
@@ -13,3 +14,18 @@ describe jimQuest = do
       putStrLn "Do you want to put the Dwight stapler to the jelly?"
       putStrLn "HINT: jelly_stapler"
     else return ()
+
+
+jellyStapler :: Game -> IO Game
+jellyStapler (Game iamAt saidHi jimQuest creedQuest dwightQuest) = do
+    if ((iamAt /= Kitchen) && (jimQuest /= StaplerOutClear))
+    then do
+        return (Game iamAt saidHi jimQuest creedQuest dwightQuest)
+    else do
+      putStrLn "Its ready!"
+      putStrLn " /----------\\"
+      putStrLn "/  |/----,,  \\"
+      putStrLn "|  |[______   |"
+      putStrLn "==============="
+      putStrLn "Now I can put back the stapler to the drawer."
+      return (Game iamAt saidHi StaplerOutJelly creedQuest dwightQuest)

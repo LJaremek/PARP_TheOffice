@@ -8,6 +8,9 @@ data JimQuest = StaplerInDesk
               | StaplerOutJelly
               | StaplerInJelly deriving Eq
 
+-- data JimQuest = JimQuestNotDone
+            --   | JimQuestDone deriving Eq
+
 data CreedQuest = CreedQuestNotStarted
                 | CreedQuestInProgress
                 | GrapeSoda

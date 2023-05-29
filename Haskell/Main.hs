@@ -21,7 +21,9 @@ import Rooms
 import Game
 import Bathroom
 import MichaelRoom
+import DwightDesk
 import CreedDesk
+import Kitchen
 import BreakRoom
 
 
@@ -82,6 +84,18 @@ gameLoop game = do
                   gameLoop newGame
                 "talk" -> do
                   newGame <- talkCreed game
+                  gameLoop newGame
+                "lookAround" -> do
+                  newGame <- checkDwightDesk game
+                  gameLoop newGame
+                "break_code" -> do
+                  newGame <- breakDwightCode game
+                  gameLoop newGame
+                "jelly_stapler" -> do
+                  newGame <- jellyStapler game
+                  gameLoop newGame
+                "put_jelly_stapler" -> do
+                  newGame <- putJellyStapler game
                   gameLoop newGame
                 "machine" -> do
                   newGame <- machine game

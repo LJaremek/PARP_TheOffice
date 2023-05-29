@@ -46,7 +46,7 @@ checkDwightDesk (Game iamAt saidHi jimQuest creedQuest dwightQuest) = do
 
 breakDwightCode :: Game -> IO Game
 breakDwightCode (Game iamAt saidHi jimQuest creedQuest dwightQuest) = do
-    if ((iamAt /= DwightDesk) && (jimQuest /= StaplerInDesk))
+    if ((iamAt /= DwightDesk) || (jimQuest /= StaplerInDesk))
     then do
         return (Game iamAt saidHi jimQuest creedQuest dwightQuest)
     else do
@@ -74,7 +74,7 @@ breakDwightCode (Game iamAt saidHi jimQuest creedQuest dwightQuest) = do
 
 putJellyStapler :: Game -> IO Game
 putJellyStapler (Game iamAt saidHi jimQuest creedQuest dwightQuest) = do
-    if ((iamAt /= DwightDesk) && (jimQuest /= StaplerOutJelly))
+    if ((iamAt /= DwightDesk) || (jimQuest /= StaplerOutJelly))
     then do
         return (Game iamAt saidHi jimQuest creedQuest dwightQuest)
     else do

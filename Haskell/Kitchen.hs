@@ -18,7 +18,7 @@ describe jimQuest = do
 
 jellyStapler :: Game -> IO Game
 jellyStapler (Game iamAt saidHi jimQuest creedQuest dwightQuest) = do
-    if ((iamAt /= Kitchen) && (jimQuest /= StaplerOutClear))
+    if ((iamAt /= Kitchen) || (jimQuest /= StaplerOutClear))
     then do
         return (Game iamAt saidHi jimQuest creedQuest dwightQuest)
     else do

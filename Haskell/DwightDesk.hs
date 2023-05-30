@@ -2,6 +2,7 @@ module DwightDesk where
 
 import Text.Read (readMaybe)
 
+import RemoveItem
 import Game
 import Rooms
 
@@ -80,7 +81,8 @@ breakDwightCode (Game iamAt saidHi jimQuest creedQuest dwightQuest inventory) = 
         putStrLn "I have broken the code!"
         putStrLn "There is a stapler here... I'm taking it!"
         putStrLn "Now I have to put it to jelly in the kitchen."
-        newGame <- checkDwightDesk (Game iamAt saidHi StaplerOutClear creedQuest dwightQuest inventory)
+        let newInventory = inventory ++ [Stapler]
+        newGame <- checkDwightDesk (Game iamAt saidHi StaplerOutClear creedQuest dwightQuest newInventory)
         return newGame
 
 
@@ -96,4 +98,6 @@ putJellyStapler (Game iamAt saidHi jimQuest creedQuest dwightQuest inventory) = 
         putStrLn "Jim gave me his reference."
         putStrLn "Michael will be proud of me when he sees this!"
         putStrLn ""
-        return (Game iamAt saidHi StaplerInJelly creedQuest dwightQuest inventory)
+        let itemsReduced = removeItem inventory StaplerInJellyItem
+        let newInventory = itemsReduced ++ [JimReference]
+        return (Game iamAt saidHi StaplerInJelly creedQuest dwightQuest newInventory)

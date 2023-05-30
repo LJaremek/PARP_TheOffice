@@ -1,6 +1,7 @@
 module CreedDesk where
 
 import Game
+import RemoveItem
 
 describe :: IO ()
 describe = do
@@ -29,14 +30,18 @@ talkCreed (Game iamAt saidHi jimQuest creedQuest dwightQuest inventory) = do
             putStrLn "Creed: Hi kid, I see you have my Grape Soda, nice job!"
             putStrLn "Creed: I'm giving you a great review!"
             putStrLn ""
-            return (Game iamAt saidHi jimQuest CreedQuestDoneFull dwightQuest inventory)
+            let reducedInventory = removeItem inventory GrapeSodaItem
+            let newInventory = reducedInventory ++ [CreedReference]
+            return (Game iamAt saidHi jimQuest CreedQuestDoneFull dwightQuest newInventory)
     else if (creedQuest == StrangeSoda)
         then do
             putStrLn ""
             putStrLn "Creed: It's not the grape soda but it will do the thing, thanks kid!"
             putStrLn "Creed: I'm giving you a pretty good review!"
             putStrLn ""
-            return (Game iamAt saidHi jimQuest CreedQuestDoneHalf dwightQuest inventory)
+            let reducedInventory = removeItem inventory StrangeSodaItem
+            let newInventory = reducedInventory ++ [CreedReference]
+            return (Game iamAt saidHi jimQuest CreedQuestDoneHalf dwightQuest newInventory)
     else do
         putStrLn "Creed plays solitaire without even noticing you"
         putStrLn "(HINT: go openspace)"
@@ -54,7 +59,8 @@ decideCreedQuest (Game iamAt saidHi jimQuest creedQuest dwightQuest inventory) =
         then do
             putStrLn ""
             putStrLn "Creed: Cool beans!"
-            newGame <- displayCreedQuestOpening (Game iamAt saidHi jimQuest creedQuest dwightQuest inventory)
+            let newInventory = inventory ++ [Coupon]
+            newGame <- displayCreedQuestOpening (Game iamAt saidHi jimQuest creedQuest dwightQuest newInventory)
             return newGame
     else if (input == "2")
         then do
@@ -83,5 +89,6 @@ displayCreedQuestOpening (Game iamAt saidHi jimQuest creedQuest dwightQuest inve
     putStrLn ""
     putStrLn "Creed: As I said, I would prefer the Grape Soda, but I don't know how to order it using this strange coupon..."
     putStrLn "Creed: When you will figure out the proper code, go to the break room and type it into the vending machine which is standing there."
+    putStrLn "(HINT: you can display coupon typing 'coupon')"
     putStrLn ""
     return (Game iamAt saidHi jimQuest CreedQuestInProgress dwightQuest inventory)

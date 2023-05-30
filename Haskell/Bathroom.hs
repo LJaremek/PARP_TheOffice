@@ -46,11 +46,12 @@ doDwightQuest (Game iamAt saidHi jimQuest creedQuest dwightQuest inventory) = do
                                                , isDoorDestroyed = False
                                                }
         isDoorDestroyed <- doDwightTasks localState
+        let newInventory = inventory ++ [DwightReference]
         if isDoorDestroyed
           then do
-            return (Game iamAt saidHi jimQuest creedQuest DwightQuestDoneHalf inventory)
+            return (Game iamAt saidHi jimQuest creedQuest DwightQuestDoneHalf newInventory)
           else do
-            return (Game iamAt saidHi jimQuest creedQuest DwightQuestDoneFull inventory)
+            return (Game iamAt saidHi jimQuest creedQuest DwightQuestDoneFull newInventory)
       else do
         newGame <- go (Game iamAt saidHi jimQuest creedQuest dwightQuest inventory) Kitchen
         return newGame

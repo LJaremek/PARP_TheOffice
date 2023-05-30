@@ -41,7 +41,7 @@ talkToMichael (Game iamAt saidHi jimQuest creedQuest dwightQuest inventory) = do
         putStrLn ""
         putStrLn "Thanks for playing ;)"
         putStrLn "Type 'quit' to quit the game or continue exploring"
-        return (Game iamAt saidHi jimQuest creedQuest dwightQuest)
+        return (Game iamAt saidHi jimQuest creedQuest dwightQuest inventory)
     else if (dwightQuest == DwightQuestDoneFull && creedQuest == CreedQuestDoneFull)
       -- good (3/3)
       then do
@@ -53,7 +53,7 @@ talkToMichael (Game iamAt saidHi jimQuest creedQuest dwightQuest inventory) = do
         putStrLn ""
         putStrLn "Thanks for playing ;)"
         putStrLn "Type 'quit' to quit the game or continue exploring"
-        return (Game iamAt saidHi jimQuest creedQuest dwightQuest)
+        return (Game iamAt saidHi jimQuest creedQuest dwightQuest inventory)
     else do
       -- medium (2/3)
       putStrLn ""
@@ -64,4 +64,4 @@ talkToMichael (Game iamAt saidHi jimQuest creedQuest dwightQuest inventory) = do
       putStrLn ""
       putStrLn "Thanks for playing ;)"
       putStrLn "Type 'quit' to quit the game or continue exploring"
-      return (Game iamAt saidHi jimQuest creedQuest dwightQuest)
+      return (Game iamAt saidHi jimQuest creedQuest dwightQuest inventory)

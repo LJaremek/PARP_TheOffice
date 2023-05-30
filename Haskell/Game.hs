@@ -35,7 +35,7 @@ instance Show Item where
   show StaplerInJellyItem = "Stapler in jelly"
   show GrapeSodaItem = "Grape soda"
   show StrangeSodaItem = "Strange soda"
-  show Coupon = "Coupon to the vending machine (hint: type 'coupon' to have a look)"
+  show Coupon = "Coupon to the vending machine (HINT: type 'coupon' to have a look)"
 
 -- Define a type to hold the game state
 data Game = Game { iamAt :: Room

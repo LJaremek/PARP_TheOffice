@@ -44,14 +44,16 @@ machineKeyboard (Game iamAt saidHi jimQuest creedQuest dwightQuest inventory) = 
     putStrLn ""
     putStrLn "Can of some strange soda that you've never heard of rolled out... (it's not Grape Soda but it's better than nothing)"
     putStrLn ""
-    return (Game iamAt saidHi jimQuest StrangeSoda dwightQuest inventory)
+    let newInventory = inventory ++ [StrangeSodaItem]
+    return (Game iamAt saidHi jimQuest StrangeSoda dwightQuest newInventory)
   else do
     if input == "073"
       then do
         putStrLn ""
         putStrLn "You have the Grape Soda!"
         putStrLn ""
-        return (Game iamAt saidHi jimQuest GrapeSoda dwightQuest inventory)
+        let newInventory = inventory ++ [GrapeSodaItem]
+        return (Game iamAt saidHi jimQuest GrapeSoda dwightQuest newInventory)
       else do
         putStrLn ""
         putStrLn "Nothing happens..."

@@ -1,11 +1,4 @@
-{-
-To jest wersja po bardzo wielu poprawkach
-Jest tak jak w repo czyimś z gitlaba (z grą 7 islands)
-Czyli stan gry jest przechowywany z zmiennej Game
-Która nam się bardzo rozrośnie
-Ale chyba chuj z tym
--}
-module NewMain where
+module Main where
 
 import Data.IORef
 
@@ -15,6 +8,7 @@ import Look
 import Go
 import ReadCommand
 import Instructions
+import RemoveItem
 
 import Elevator
 import Rooms
@@ -43,6 +37,27 @@ enter_func (Game iamAt saidHi jimQuest creedQuest dwightQuest inventory) = do
     else do
       putStrLn "You need to say hi first!"
       return (Game iamAt saidHi jimQuest creedQuest dwightQuest inventory)
+
+printInventory :: [Item] -> IO ()
+printInventory items = do
+  putStrLn ""
+  printItems items
+  putStrLn ""
+
+printItems :: [Item] -> IO [Item]
+printItems (x : xs) = do
+  putStrLn (show x)
+  printItems xs
+printItems _ = return []
+
+printCoupon = do
+  putStrLn ""
+  putStrLn "       =ONE FREE SODA="
+  putStrLn "          F   G   H"
+  putStrLn "       P 034 015 092"
+  putStrLn "       R 059 041 065"
+  putStrLn "       S 026 073 087"
+  putStrLn ""
 
 gameLoop :: Game -> IO Game
 gameLoop game = do
@@ -99,6 +114,13 @@ gameLoop game = do
                 "machine" -> do
                   newGame <- machine game
                   gameLoop newGame
+                "inventory" -> do
+                  let items = inventory game
+                  printInventory items
+                  gameLoop game
+                "coupon" -> do
+                  printCoupon
+                  gameLoop game
                 "quit" -> return game
                 ":q" -> return game
                 "exit" -> return game
@@ -116,3 +138,5 @@ start = do
                   }
   look game
   gameLoop game
+
+main = start

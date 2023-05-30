@@ -2,6 +2,7 @@ module Kitchen where
 
 import Game
 import Rooms
+import RemoveItem
 
 describe :: JimQuest -> IO ()
 describe jimQuest = do
@@ -31,4 +32,6 @@ jellyStapler (Game iamAt saidHi jimQuest creedQuest dwightQuest inventory) = do
       putStrLn "==============="
       putStrLn "Now I can put back the stapler to the drawer."
       putStrLn ""
-      return (Game iamAt saidHi StaplerOutJelly creedQuest dwightQuest inventory)
+      let itemsWithStaplerInJelly = inventory ++ [StaplerInJellyItem]
+      let itemsWithoutStapler = removeItem itemsWithStaplerInJelly Stapler
+      return (Game iamAt saidHi StaplerOutJelly creedQuest dwightQuest itemsWithoutStapler)

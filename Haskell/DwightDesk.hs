@@ -94,7 +94,7 @@ breakDwightCode (Game iamAt saidHi jimQuest creedQuest dwightQuest inventory) = 
     else do
         putStrLn ""
         putStrLn "(Not a valid input)"
-        newGame <- breakDwightCode (Game iamAt saidHi jimQuest creedQuest dwightQuest)
+        newGame <- breakDwightCode (Game iamAt saidHi jimQuest creedQuest dwightQuest inventory)
         return newGame
 
 

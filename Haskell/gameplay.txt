@@ -1,0 +1,367 @@
+ghci> start
+
+Available commands are:
+start         - start the game
+instructions  - see this message again
+go <room>     - go to that room
+look          - look around you
+inventory     - show inventory
+quit          - end the game and quit
+
+
+You step into the elevator and when the doors are closing Michael (your boss) rushes inside.
+
+Michael: Hi, you must be our new intern, welcome to Dunder Mifflin!
+(HINT: type 'hi' to say hi)
+
+> hi
+
+Michael: During your internship you should obtain 3 (hopefully positive) reviews from other employees. Look around the office and see what you can do. When you are ready come to my room and I will take a look. Good luck!
+(HINT: type 'enter' to enter the office)
+
+> enter
+
+As you step out of the elevator you enter the office openspace...
+You see Jim approaching you with a big smile...
+
+Jim: Hi, I'm Jim! I'm glad to have the opportunity to assign to you something useful that will prove your competence. Dwight is working in our office, he's my best friend who LOVES jelly and staplers. Play him a funny prank, and I'll sign off on your task completion. It's worth checking out his desk in the openspace. Good luck!
+
+
+You are in the openspace
+You can go to the 'conference_room', 'kitchen', 'dwight_desk', 'creed_desk' and 'michael_room' from here
+
+> go dwight_desk
+
+You are near the Dwight desk
+You can go to the 'openspace' from here
+Type 'look_around' to check the desk
+
+> look_around
+
+Jim told me to prank Dwight.
+You see his desk with the drawer closed with a four-digit lock.
+Maybe can I breake the code?. There should be something!
+HINT: 'break_code'
+
+> break_code
+
+Type the code:
+3000
+
+It's not that number. I think the code number is bigger...
+
+Type the code:
+4200
+
+It's not that number. I think the code number is bigger...
+
+Type the code:
+5678
+
+It's not that number. I think the code number is less...
+
+Type the code:
+4510
+
+I have broken the code!
+There is a stapler here... I'm taking it!
+Now I have to put it to jelly in the kitchen.
+
+I have the stapler in my hands.
+I have to go to the kitchen and put it to the jelly!
+
+> go openspace
+
+You are in the openspace
+You can go to the 'conference_room', 'kitchen', 'dwight_desk', 'creed_desk' and 'michael_room' from here
+
+> go kitchen
+
+You are in the kitchen
+There is a coffee machine, some tea, a kettle, and some jelly powder.
+Maybe it will be useful later...
+You can go to the 'break_room', 'bathroom' or to the 'openspace' from here.
+Do you want to put the Dwight stapler to the jelly?
+HINT: jelly_stapler
+
+> jelly_stapler
+
+It's ready!
+
+ /----------\
+/  |/----,,  \
+|  |[______   |
+===============
+Now I can put back the stapler to the drawer.
+
+> inventory
+
+Stapler in jelly
+
+> go openspace
+
+You are in the openspace
+You can go to the 'conference_room', 'kitchen', 'dwight_desk', 'creed_desk' and 'michael_room' from here
+
+> go dwight_desk
+
+You are near the Dwight desk
+You can go to the 'openspace' from here
+Type 'look_around' to check the desk
+
+> look_around
+
+I have the stapler in a jelly in my hands.
+I have to put it back to the drawer!
+HINT 'put_jelly_stapler'
+
+> put_jelly_stapler
+
+Now the jelly stapler is in the Dwight drawer.
+Jim: The jelly stapler is in the Dwight desk drawer. Good job!
+Jim gave me his reference.
+Michael will be proud of me when he sees this!
+
+> inventory
+
+Jim's reference
+
+> go openspace
+
+You are in the openspace
+You can go to the 'conference_room', 'kitchen', 'dwight_desk', 'creed_desk' and 'michael_room' from here
+
+> go bathroom
+
+There is no path to that place.
+
+You are in the openspace
+You can go to the 'conference_room', 'kitchen', 'dwight_desk', 'creed_desk' and 'michael_room' from here
+
+> go creed_desk
+
+You see Creed playing solitaire on his computer while eating an apple...
+(HINT: talk)
+You can go back to 'openspace' from here.
+
+> talk
+
+Creed: Hi kid, I have some small job for you.
+
+Enter the number of selected dialogue option:
+  1 - Ok, I will do it. (start quest)
+  2 - Sorry, but I don't have time right now. (leave)
+1
+
+Creed: Cool beans!
+Creed: So... I have this coupon for one free soda in our vending machine. I would like to drink some Grape Soda, but the thing is that this coupon is strange. I don't know how to use it, maybe you will figure it out.
+Creed: Here is the coupon...
+
+       =ONE FREE SODA=
+          F   G   H
+       P 034 015 092
+       R 059 041 065
+       S 026 073 087
+
+Creed: As I said, I would prefer the Grape Soda, but I don't know how to order it using this strange coupon...
+Creed: When you will figure out the proper code, go to the break room and type it into the vending machine which is standing there.
+(HINT: you can display coupon typing 'coupon')
+
+You see Creed playing solitaire on his computer while eating an apple...
+(HINT: talk)
+You can go back to 'openspace' from here.
+
+> go openspace
+
+You are in the openspace
+You can go to the 'conference_room', 'kitchen', 'dwight_desk', 'creed_desk' and 'michael_room' from here
+
+> go kitchen
+
+You are in the kitchen
+There is a coffee machine, some tea, a kettle, and some jelly powder.
+Maybe it will be useful later...
+You can go to the 'break_room', 'bathroom' or to the 'openspace' from here.
+
+> go break_room
+
+You are in the break room
+There's a vending machine here (HINT: machine)
+You can go back to the kitchen from here
+
+> machine
+
+Enter a number:
+07323453
+
+Nothing happens...
+
+> inventory
+
+Jim's reference
+Coupon to the vending machine (HINT: type 'coupon' to have a look)
+
+> coupon
+
+       =ONE FREE SODA=
+          F   G   H
+       P 034 015 092
+       R 059 041 065
+       S 026 073 087
+
+> machine
+
+Enter a number:
+073
+
+You have the Grape Soda!
+
+> go kitchen
+
+You are in the kitchen
+There is a coffee machine, some tea, a kettle, and some jelly powder.
+Maybe it will be useful later...
+You can go to the 'break_room', 'bathroom' or to the 'openspace' from here.
+
+> go openspace
+
+You are in the openspace
+You can go to the 'conference_room', 'kitchen', 'dwight_desk', 'creed_desk' and 'michael_room' from here
+
+> go creed_desk
+
+You see Creed playing solitaire on his computer while eating an apple...
+(HINT: talk)
+You can go back to 'openspace' from here.
+
+> talk
+
+Creed: Hi kid, I see you have my Grape Soda, nice job!
+Creed: I'm giving you a great review!
+
+> go kitchen
+
+There is no path to that place.
+
+You see Creed playing solitaire on his computer while eating an apple...
+(HINT: talk)
+You can go back to 'openspace' from here.
+
+> go bathroom
+
+There is no path to that place.
+
+You see Creed playing solitaire on his computer while eating an apple...
+(HINT: talk)
+You can go back to 'openspace' from here.
+
+> go openspace
+
+You are in the openspace
+You can go to the 'conference_room', 'kitchen', 'dwight_desk', 'creed_desk' and 'michael_room' from here
+
+> go kitchen
+
+You are in the kitchen
+There is a coffee machine, some tea, a kettle, and some jelly powder.
+Maybe it will be useful later...
+You can go to the 'break_room', 'bathroom' or to the 'openspace' from here.
+
+> go bathroom
+
+You stop in front of the bathroom door. You place your hand on the door handle...
+...and suddenly you hear furious German swearing words coming from the inside.
+HINT: knock or go kitchen
+
+> knock
+
+Dwight (from the inside): Hey, wait! Temp, is that you? You have to help me. I've been locked inside.
+Dwight: If you help me and tell nothing to Jim I will give you my recommendation.
+You: How on Earth are you locked inside?
+Dwight: I have forgotten that I had recently changed code to my padlock...
+You: Do you always lock yourself in a bathroom with a padlock?
+Dwight: Of course, Temp. I value my privacy, I always have my military padlock with digit code.
+Dwight: For security reasons I change the code every month... Temp, you have to help me!
+
+Enter the number of dialogue option:
+1. Ok, I will help you now. (start quest)
+2. Oh, I have left the oven turned on... be right back! (leave Dwight inside)
+
+> 1
+
+You: Do you have your new code saved somewhere?
+Dwight: No, are you stupid, Temp? I never write down any code. I have e n c r y p t e d it.
+You: So why don't you d e c r y p t it?
+Dwight: Because I have forgotten how I encrypted it... I have my notes here, though.
+Dwight: I will tell you first numbers of a sequence, and you have to find the next element. This is going to be a part of the code.
+
+Find the next element: 1, 2, 4, 8, 16, ...
+OR: Type 'kick' to kick off the door (Michael is not going to be happy about it...)
+
+> 32
+
+Find the next element: 1, 1, 2, 3, 5, 8, ...
+OR: Type 'kick' to kick off the door (Michael is not going to be happy about it...)
+
+> 13
+
+Find the next element: 1, 4, 9, 16, 25, ...
+OR: Type 'kick' to kick off the door (Michael is not going to be happy about it...)
+
+> 36
+
+Find the next element: 1, 32, 81, 64, 25, ...
+OR: Type 'kick' to kick off the door (Michael is not going to be happy about it...)
+
+> 6
+
+You hear some clicking and cracking and, to your surprise, the bathroom door opens and you see Dwight coming out from the bathroom
+Dwight: Did I forget the code for real? FALSE. I was just checking whether you have basic math skills, Temp.
+Dwight: Here you have my reference, but don't imagine that you have proved yourself useful.
+Dwight gives you a sheet of paper with his signature and then moves to his desk in openspace. The bathroom is open now.
+
+
+Some toilets, sinks, and rather unhealthy smell. The toilet paper seems to be missing as usual. Nothing too interesting here.
+You can go back to the 'kitchen' from here
+
+> go kitchen
+
+You are in the kitchen
+There is a coffee machine, some tea, a kettle, and some jelly powder.
+Maybe it will be useful later...
+You can go to the 'break_room', 'bathroom' or to the 'openspace' from here.
+
+> go openspace
+
+You are in the openspace
+You can go to the 'conference_room', 'kitchen', 'dwight_desk', 'creed_desk' and 'michael_room' from here
+
+> inventory
+
+Jim's reference
+Coupon to the vending machine (HINT: type 'coupon' to have a look)
+Creed's reference
+Dwight's reference
+
+> go michale
+
+You are in the openspace
+You can go to the 'conference_room', 'kitchen', 'dwight_desk', 'creed_desk' and 'michael_room' from here
+
+> go michael_room
+
+You are in the Michael's room.
+He is setting at the desk and doing some very important stuff on his computer.
+(HINT: michael)
+You can go back to the 'openspace' from here
+
+> michael
+
+Michael: Okay, what do we have here? Hmm, okay. Fantastic! I see that each of my top three employees has given you a positive review, I'm impressed! Thank you for this wonderful day and welcome aboard the company! That's all for today, go home and celebrate the success, and see you tomorrow morning. Take care!
+
+
+END OF THE GAME
+
+Thanks for playing ;)
+Type 'quit' to quit the game or continue exploring
+> quit

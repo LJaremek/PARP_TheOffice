@@ -24,7 +24,7 @@ jellyStapler (Game iamAt saidHi jimQuest creedQuest dwightQuest inventory) = do
         return (Game iamAt saidHi jimQuest creedQuest dwightQuest inventory)
     else do
       putStrLn ""
-      putStrLn "Its ready!"
+      putStrLn "It's ready!"
       putStrLn ""
       putStrLn " /----------\\"
       putStrLn "/  |/----,,  \\"

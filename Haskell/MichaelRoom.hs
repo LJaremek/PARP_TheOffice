@@ -9,7 +9,7 @@ import System.Exit
 describe :: JimQuest -> CreedQuest -> DwightQuest -> IO ()
 describe jimQuest creedQuest dwightQuest = do
   putStrLn "You are in the Michael's room."
-  putStrLn "He is setting at the desk and doing some very important stuff on his computer."
+  putStrLn "He is sitting at the desk and doing some very important stuff on his computer."
   putStrLn "(HINT: michael)"
   putStrLn "You can go back to the 'openspace' from here"
 

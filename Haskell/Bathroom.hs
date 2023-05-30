@@ -23,7 +23,7 @@ describe dwightQuest = do
       putStrLn "...and suddenly you hear furious German swearing words coming from the inside."
       putStrLn "HINT: knock or go kitchen"
     else do
-      putStrLn "Some toilets, sinks, and rather unhealthy smell. The toilet paper seems to be missing as ususal. Nothing too interesting here."
+      putStrLn "Some toilets, sinks, and rather unhealthy smell. The toilet paper seems to be missing as usual. Nothing too interesting here."
       putStrLn "You can go back to the 'kitchen' from here"
 
 doDwightQuest :: Game -> IO Game
@@ -200,7 +200,7 @@ displayDwightQuestOpening = do
   putStrLn "Dwight: No, are you stupid, Temp? I never write down any code. I have e n c r y p t e d it."
   putStrLn "You: So why don't you d e c r y p t it?"
   putStrLn "Dwight: Because I have forgotten how I encrypted it... I have my notes here, though."
-  putStrLn "Dwight: I will tell you first numbers of a sequence and you have to find the next element. This is going to be a part of the code."
+  putStrLn "Dwight: I will tell you first numbers of a sequence, and you have to find the next element. This is going to be a part of the code."
 
 displayDwightFinalDialogueDoorDestroyed = do
   putStrLn ""
@@ -213,7 +213,7 @@ displayDwightFinalDialogueDoorDestroyed = do
 displayDwightFinalDialogueDoorNotDestroyed = do
   putStrLn ""
   putStrLn "You hear some clicking and cracking and, to your surprise, the bathroom door opens and you see Dwight coming out from the bathroom"
-  putStrLn "Dwight: Did I forgot the code for real? FALSE. I was just checking whether you have basic math skills, Temp."
+  putStrLn "Dwight: Did I forget the code for real? FALSE. I was just checking whether you have basic math skills, Temp."
   putStrLn "Dwight: Here you have my reference, but don't imagine that you have proved yourself useful."
   putStrLn "Dwight gives you a sheet of paper with his signature and then moves to his desk in openspace. The bathroom is open now."
   putStrLn ""

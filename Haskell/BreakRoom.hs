@@ -6,7 +6,7 @@ describe :: IO ()
 describe = do
   putStrLn "You are in the break room"
   putStrLn "There's a vending machine here (HINT: machine)"
-  putStrLn "You can go back to the kitchene from here"
+  putStrLn "You can go back to the kitchen from here"
 
 machine :: Game -> IO Game
 machine (Game iamAt saidHi jimQuest creedQuest dwightQuest inventory) = do

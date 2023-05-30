@@ -51,6 +51,11 @@ checkDwightDesk (Game iamAt saidHi jimQuest creedQuest dwightQuest) = do
         putStrLn ""
         return (Game iamAt saidHi jimQuest creedQuest dwightQuest)
 
+isNumber :: String -> Bool
+isNumber str =
+  case reads str :: [(Double, String)] of
+    [(_, "")] -> True
+    _         -> False
 
 breakDwightCode :: Game -> IO Game
 breakDwightCode (Game iamAt saidHi jimQuest creedQuest dwightQuest) = do
@@ -62,25 +67,32 @@ breakDwightCode (Game iamAt saidHi jimQuest creedQuest dwightQuest) = do
     putStrLn ""
     putStrLn "Type the code: "
     input <- getLine
-    let number = read input :: Int
-    if (number > 4510)
+    if (isNumber input) then do
+        let number = read input :: Int
+
+        if (number > 4510)
         then do
             putStrLn ""
             putStrLn "It's not that number. I think the code number is less..."
             newGame <- breakDwightCode (Game iamAt saidHi jimQuest creedQuest dwightQuest)
             return newGame
-    else if (number < 4510)
-        then do
+        else if (number < 4510)
+            then do
+                putStrLn ""
+                putStrLn "It's not that number. I think the code number is bigger..."
+                newGame <- breakDwightCode (Game iamAt saidHi jimQuest creedQuest dwightQuest)
+                return newGame
+        else do
             putStrLn ""
-            putStrLn "It's not that number. I think the code number is bigger..."
-            newGame <- breakDwightCode (Game iamAt saidHi jimQuest creedQuest dwightQuest)
+            putStrLn "I have broken the code!"
+            putStrLn "There is a stapler here... I'm taking it!"
+            putStrLn "Now I have to put it to jelly in the kitchen."
+            newGame <- checkDwightDesk (Game iamAt saidHi StaplerOutClear creedQuest dwightQuest)
             return newGame
     else do
         putStrLn ""
-        putStrLn "I have broken the code!"
-        putStrLn "There is a stapler here... I'm taking it!"
-        putStrLn "Now I have to put it to jelly in the kitchen."
-        newGame <- checkDwightDesk (Game iamAt saidHi StaplerOutClear creedQuest dwightQuest)
+        putStrLn "(Not a valid input)"
+        newGame <- breakDwightCode (Game iamAt saidHi jimQuest creedQuest dwightQuest)
         return newGame
 
 

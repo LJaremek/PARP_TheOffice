@@ -27,8 +27,8 @@ machine (Game iamAt saidHi jimQuest creedQuest dwightQuest inventory) = do
 isNumber :: String -> Bool
 isNumber str =
   case reads str :: [(Double, String)] of
-    [(_, "")] -> True   -- The string was completely parsed as a number
-    _         -> False  -- The string couldn't be parsed as a number or had extra characters
+    [(_, "")] -> True
+    _         -> False
 
 machineKeyboard :: Game -> IO Game
 machineKeyboard (Game iamAt saidHi jimQuest creedQuest dwightQuest inventory) = do

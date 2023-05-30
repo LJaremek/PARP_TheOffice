@@ -9,5 +9,5 @@ instructions = do
     putStrLn "go <room>     - go to that room"
     putStrLn "look          - look around you"
     putStrLn "inventory     - show inventory"
-    putStrLn "halt          - end the game and quit"
+    putStrLn "quit          - end the game and quit"
     putStrLn ""

@@ -9,7 +9,6 @@ describe = do
    putStrLn "Michael: Hi, you must be our new intern, welcome to Dunder Mifflin!"
    putStrLn "(HINT: type 'hi' to say hi)"
 
--- Define a function for the user to say hi
 hi_func :: Game -> IO Game
 hi_func (Game iamAt saidHi jimQuest creedQuest dwightQuest inventory) = do
    putStrLn ""

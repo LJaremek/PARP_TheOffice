@@ -12,7 +12,6 @@ import DwightDesk
 import CreedDesk
 import BreakRoom
 
--- Define a function to describe the current location
 look :: Game -> IO ()
 look (Game iamAt saidHi jimQuest creedQuest dwightQuest inventory) = do
   let place = iamAt

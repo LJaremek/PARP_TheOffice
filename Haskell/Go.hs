@@ -5,7 +5,6 @@ import Data.Maybe
 import Game
 import Rooms
 
--- Define a function to change the current location
 go :: Game -> Room -> IO Game
 go (Game iamAt saidHi jimQuest creedQuest dwightQuest) room = do
   let here = iamAt

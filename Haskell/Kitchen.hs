@@ -22,10 +22,13 @@ jellyStapler (Game iamAt saidHi jimQuest creedQuest dwightQuest) = do
     then do
         return (Game iamAt saidHi jimQuest creedQuest dwightQuest)
     else do
+      putStrLn ""
       putStrLn "Its ready!"
+      putStrLn ""
       putStrLn " /----------\\"
       putStrLn "/  |/----,,  \\"
       putStrLn "|  |[______   |"
       putStrLn "==============="
       putStrLn "Now I can put back the stapler to the drawer."
+      putStrLn ""
       return (Game iamAt saidHi StaplerOutJelly creedQuest dwightQuest)

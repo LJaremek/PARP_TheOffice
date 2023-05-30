@@ -27,7 +27,6 @@ import Kitchen
 import BreakRoom
 
 
--- Define a function for the user to enter the office
 enter_func :: Game -> IO Game
 enter_func (Game iamAt saidHi jimQuest creedQuest dwightQuest) = do
   let sh = saidHi
@@ -107,7 +106,6 @@ gameLoop game = do
                     gameLoop game
 
 
--- Define the main program
 start = do
   let game = Game { iamAt = Elevator
                   , saidHi = False

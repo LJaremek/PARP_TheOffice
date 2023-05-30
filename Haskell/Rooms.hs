@@ -4,7 +4,6 @@ import Text.Read (readMaybe)
 
 data Room = Elevator | Openspace | Kitchen | Bathroom | ConferenceRoom | MichaelRoom | DwightDesk | CreedDesk | BreakRoom deriving Eq
 
--- in case of need to print the name of the room
 instance Show Room where
   show Elevator = "elevator"
   show Openspace = "openspace"
@@ -16,7 +15,6 @@ instance Show Room where
   show CreedDesk = "creed_desk"
   show BreakRoom = "break_room"
 
--- mapping name of the room to the room (useful in reading user input)
 instance Read Room where
     readsPrec _ "openspace" = [(Openspace, "")]
     readsPrec _ "kitchen" = [(Kitchen, "")]
@@ -29,7 +27,6 @@ instance Read Room where
 
     readsPrec _ _ = []
 
--- Define a function to check whether there is a path between two locations
 path :: Room -> Room -> IO Bool
 path Elevator Openspace = return True
 path Openspace Elevator = return True

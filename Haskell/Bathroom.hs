@@ -27,12 +27,12 @@ describe dwightQuest = do
       putStrLn "You can go back to the 'kitchen' from here"
 
 doDwightQuest :: Game -> IO Game
-doDwightQuest (Game iamAt saidHi jimQuest creedQuest dwightQuest) = do
+doDwightQuest (Game iamAt saidHi jimQuest creedQuest dwightQuest inventory) = do
   if iamAt /= Bathroom
-    then return (Game iamAt saidHi jimQuest creedQuest dwightQuest)
+    then return (Game iamAt saidHi jimQuest creedQuest dwightQuest inventory)
   else if dwightQuest /= DwightQuestNotStarted then do
     putStrLn "It seems there is no one in the bathroom"
-    return (Game iamAt saidHi jimQuest creedQuest dwightQuest)
+    return (Game iamAt saidHi jimQuest creedQuest dwightQuest inventory)
   else do
     displayDwightInitialDialogue
     startQuest <- decideWhetherToStartDwightQuest
@@ -48,11 +48,11 @@ doDwightQuest (Game iamAt saidHi jimQuest creedQuest dwightQuest) = do
         isDoorDestroyed <- doDwightTasks localState
         if isDoorDestroyed
           then do
-            return (Game iamAt saidHi jimQuest creedQuest DwightQuestDoneHalf)
+            return (Game iamAt saidHi jimQuest creedQuest DwightQuestDoneHalf inventory)
           else do
-            return (Game iamAt saidHi jimQuest creedQuest DwightQuestDoneFull)
+            return (Game iamAt saidHi jimQuest creedQuest DwightQuestDoneFull inventory)
       else do
-        newGame <- go (Game iamAt saidHi jimQuest creedQuest dwightQuest) Kitchen
+        newGame <- go (Game iamAt saidHi jimQuest creedQuest dwightQuest inventory) Kitchen
         return newGame
 
 

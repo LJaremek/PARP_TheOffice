@@ -29,7 +29,7 @@ import BreakRoom
 
 -- Define a function for the user to enter the office
 enter_func :: Game -> IO Game
-enter_func (Game iamAt saidHi jimQuest creedQuest dwightQuest) = do
+enter_func (Game iamAt saidHi jimQuest creedQuest dwightQuest inventory) = do
   let sh = saidHi
   if sh
     then do
@@ -39,11 +39,11 @@ enter_func (Game iamAt saidHi jimQuest creedQuest dwightQuest) = do
       putStrLn ""
       putStrLn "Jim: Hi, I'm Jim! I'm glad to have the opportunity to assign to you something useful that will prove your competence. Dwight is working in our office, he's my best friend who LOVES jelly and staplers. Play him a funny prank, and I'll sign off on your task completion. It's worth checking out his desk in the openspace. Good luck!"
       putStrLn ""
-      newGame <- go (Game iamAt saidHi jimQuest creedQuest dwightQuest) Openspace
+      newGame <- go (Game iamAt saidHi jimQuest creedQuest dwightQuest inventory) Openspace
       return newGame
     else do
       putStrLn "You need to say hi first!"
-      return (Game iamAt saidHi jimQuest creedQuest dwightQuest)
+      return (Game iamAt saidHi jimQuest creedQuest dwightQuest inventory)
 
 gameLoop :: Game -> IO Game
 gameLoop game = do
@@ -114,6 +114,7 @@ start = do
                   , jimQuest = StaplerInDesk
                   , creedQuest = CreedQuestNotStarted
                   , dwightQuest = DwightQuestNotStarted
+                  , inventory = []
                   }
   look game
   gameLoop game

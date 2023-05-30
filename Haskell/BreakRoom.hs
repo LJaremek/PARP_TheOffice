@@ -9,20 +9,20 @@ describe = do
   putStrLn "You can go back to the kitchene from here"
 
 machine :: Game -> IO Game
-machine (Game iamAt saidHi jimQuest creedQuest dwightQuest) = do
+machine (Game iamAt saidHi jimQuest creedQuest dwightQuest inventory) = do
   if (creedQuest == CreedQuestInProgress) then do
-    newGame <- machineKeyboard (Game iamAt saidHi jimQuest creedQuest dwightQuest)
+    newGame <- machineKeyboard (Game iamAt saidHi jimQuest creedQuest dwightQuest inventory)
     return newGame
   else if (creedQuest == CreedQuestNotStarted) then do
     putStrLn ""
     putStrLn "(It might be useful later)"
     putStrLn ""
-    return (Game iamAt saidHi jimQuest creedQuest dwightQuest)
+    return (Game iamAt saidHi jimQuest creedQuest dwightQuest inventory)
   else do
     putStrLn ""
     putStrLn "(You've already used the coupon)"
     putStrLn ""
-    return (Game iamAt saidHi jimQuest creedQuest dwightQuest)
+    return (Game iamAt saidHi jimQuest creedQuest dwightQuest inventory)
 
 isNumber :: String -> Bool
 isNumber str =
@@ -31,7 +31,7 @@ isNumber str =
     _         -> False  -- The string couldn't be parsed as a number or had extra characters
 
 machineKeyboard :: Game -> IO Game
-machineKeyboard (Game iamAt saidHi jimQuest creedQuest dwightQuest) = do
+machineKeyboard (Game iamAt saidHi jimQuest creedQuest dwightQuest inventory) = do
   putStrLn ""
   putStrLn "Enter a number:"
   input <- getLine
@@ -39,21 +39,21 @@ machineKeyboard (Game iamAt saidHi jimQuest creedQuest dwightQuest) = do
     putStrLn ""
     putStrLn "(Not a valid input)"
     putStrLn ""
-    return (Game iamAt saidHi jimQuest creedQuest dwightQuest)
+    return (Game iamAt saidHi jimQuest creedQuest dwightQuest inventory)
   else if (input `elem` ["034", "015", "092", "059", "041", "065", "026", "087"]) then do
     putStrLn ""
     putStrLn "Can of some strange soda that you've never heard of rolled out... (it's not Grape Soda but it's better than nothing)"
     putStrLn ""
-    return (Game iamAt saidHi jimQuest StrangeSoda dwightQuest)
+    return (Game iamAt saidHi jimQuest StrangeSoda dwightQuest inventory)
   else do
     if input == "073"
       then do
         putStrLn ""
         putStrLn "You have the Grape Soda!"
         putStrLn ""
-        return (Game iamAt saidHi jimQuest GrapeSoda dwightQuest)
+        return (Game iamAt saidHi jimQuest GrapeSoda dwightQuest inventory)
       else do
         putStrLn ""
         putStrLn "Nothing happens..."
         putStrLn ""
-        return (Game iamAt saidHi jimQuest creedQuest dwightQuest)
+        return (Game iamAt saidHi jimQuest creedQuest dwightQuest inventory)

@@ -13,10 +13,10 @@ describe = do
 
 
 checkDwightDesk :: Game -> IO Game
-checkDwightDesk (Game iamAt saidHi jimQuest creedQuest dwightQuest) = do
+checkDwightDesk (Game iamAt saidHi jimQuest creedQuest dwightQuest inventory) = do
     if (iamAt /= DwightDesk)
     then do
-        return (Game iamAt saidHi jimQuest creedQuest dwightQuest)
+        return (Game iamAt saidHi jimQuest creedQuest dwightQuest inventory)
     else do
 
     if (jimQuest == StaplerInDesk)
@@ -25,30 +25,30 @@ checkDwightDesk (Game iamAt saidHi jimQuest creedQuest dwightQuest) = do
             putStrLn "You see his desk with the drawer closed with a four-digit lock."
             putStrLn "Maybe can I breake the code?. There should be something!"
             putStrLn "HINT: 'break_code'"
-            return (Game iamAt saidHi jimQuest creedQuest dwightQuest)
+            return (Game iamAt saidHi jimQuest creedQuest dwightQuest inventory)
     else if (jimQuest == StaplerOutClear)
         then do
             putStrLn "I have the stapler in my hands."
             putStrLn "I have to go to the kitchen and put it to the jelly!"
-            return (Game iamAt saidHi jimQuest creedQuest dwightQuest)
+            return (Game iamAt saidHi jimQuest creedQuest dwightQuest inventory)
     else if (jimQuest == StaplerOutJelly)
         then do
             putStrLn "I have the stapler in a jelly in my hands."
             putStrLn "I have to put it back to the drawer!"
             putStrLn "HINT 'put_jelly_stapler'"
-            return (Game iamAt saidHi jimQuest creedQuest dwightQuest)
+            return (Game iamAt saidHi jimQuest creedQuest dwightQuest inventory)
     else do  -- StaplerInJelly
         putStrLn "The jelly stapler is in the Dwight desk drawer. Good job!"
         putStrLn "Jim gave me his reference."
         putStrLn "Michael will be proud of me when he sees this!"
-        return (Game iamAt saidHi jimQuest creedQuest dwightQuest)
+        return (Game iamAt saidHi jimQuest creedQuest dwightQuest inventory)
 
 
 breakDwightCode :: Game -> IO Game
-breakDwightCode (Game iamAt saidHi jimQuest creedQuest dwightQuest) = do
+breakDwightCode (Game iamAt saidHi jimQuest creedQuest dwightQuest inventory) = do
     if ((iamAt /= DwightDesk) || (jimQuest /= StaplerInDesk))
     then do
-        return (Game iamAt saidHi jimQuest creedQuest dwightQuest)
+        return (Game iamAt saidHi jimQuest creedQuest dwightQuest inventory)
     else do
 
     putStrLn "Type the code: "
@@ -57,30 +57,30 @@ breakDwightCode (Game iamAt saidHi jimQuest creedQuest dwightQuest) = do
     if (number > 4510)
         then do
             putStrLn "It's not that number. I think the code number is less..."
-            newGame <- breakDwightCode (Game iamAt saidHi jimQuest creedQuest dwightQuest)
+            newGame <- breakDwightCode (Game iamAt saidHi jimQuest creedQuest dwightQuest inventory)
             return newGame
     else if (number < 4510)
         then do
             putStrLn "It's not that number. I think the code number is bigger..."
-            newGame <- breakDwightCode (Game iamAt saidHi jimQuest creedQuest dwightQuest)
+            newGame <- breakDwightCode (Game iamAt saidHi jimQuest creedQuest dwightQuest inventory)
             return newGame
     else do
         putStrLn "I have broken the code!"
         putStrLn "There is a stapler here... I'm taking it!"
         putStrLn "Now I have to put it to jelly in the kitchen."
-        newGame <- checkDwightDesk (Game iamAt saidHi StaplerOutClear creedQuest dwightQuest)
+        newGame <- checkDwightDesk (Game iamAt saidHi StaplerOutClear creedQuest dwightQuest inventory)
         return newGame
 
 
 putJellyStapler :: Game -> IO Game
-putJellyStapler (Game iamAt saidHi jimQuest creedQuest dwightQuest) = do
+putJellyStapler (Game iamAt saidHi jimQuest creedQuest dwightQuest inventory) = do
     if ((iamAt /= DwightDesk) || (jimQuest /= StaplerOutJelly))
     then do
-        return (Game iamAt saidHi jimQuest creedQuest dwightQuest)
+        return (Game iamAt saidHi jimQuest creedQuest dwightQuest inventory)
     else do
         putStrLn "Now the jelly stapler is in the Dwight drawer."
         putStrLn "Jim: The jelly stapler is in the Dwight desk drawer. Good job!"
         putStrLn "Jim gave me his reference."
         putStrLn "Michael will be proud of me when he sees this!"
 
-        return (Game iamAt saidHi StaplerInJelly creedQuest dwightQuest)
+        return (Game iamAt saidHi StaplerInJelly creedQuest dwightQuest inventory)

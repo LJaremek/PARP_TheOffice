@@ -14,9 +14,9 @@ describe jimQuest creedQuest dwightQuest = do
   putStrLn "You can go back to the 'openspace' from here"
 
 talkToMichael :: Game -> IO Game
-talkToMichael (Game iamAt saidHi jimQuest creedQuest dwightQuest) = do
+talkToMichael (Game iamAt saidHi jimQuest creedQuest dwightQuest inventory) = do
   if iamAt /= MichaelRoom
-    then return (Game iamAt saidHi jimQuest creedQuest dwightQuest)
+    then return (Game iamAt saidHi jimQuest creedQuest dwightQuest inventory)
   else if (
       (dwightQuest /= DwightQuestDoneHalf && dwightQuest /= DwightQuestDoneFull)
       ||
@@ -27,7 +27,7 @@ talkToMichael (Game iamAt saidHi jimQuest creedQuest dwightQuest) = do
   then do
     putStrLn "(You haven't obtained 3 reviews yet, you should do that before talking to Michael)"
     putStrLn "(HINT: go openspace.)"
-    return (Game iamAt saidHi jimQuest creedQuest dwightQuest)
+    return (Game iamAt saidHi jimQuest creedQuest dwightQuest inventory)
   else do
     if (dwightQuest == DwightQuestDoneHalf && creedQuest == CreedQuestDoneHalf)
       -- poor (1/3)

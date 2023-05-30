@@ -17,10 +17,10 @@ describe jimQuest = do
 
 
 jellyStapler :: Game -> IO Game
-jellyStapler (Game iamAt saidHi jimQuest creedQuest dwightQuest) = do
+jellyStapler (Game iamAt saidHi jimQuest creedQuest dwightQuest inventory) = do
     if ((iamAt /= Kitchen) || (jimQuest /= StaplerOutClear))
     then do
-        return (Game iamAt saidHi jimQuest creedQuest dwightQuest)
+        return (Game iamAt saidHi jimQuest creedQuest dwightQuest inventory)
     else do
       putStrLn "Its ready!"
       putStrLn " /----------\\"
@@ -28,4 +28,4 @@ jellyStapler (Game iamAt saidHi jimQuest creedQuest dwightQuest) = do
       putStrLn "|  |[______   |"
       putStrLn "==============="
       putStrLn "Now I can put back the stapler to the drawer."
-      return (Game iamAt saidHi StaplerOutJelly creedQuest dwightQuest)
+      return (Game iamAt saidHi StaplerOutJelly creedQuest dwightQuest inventory)

@@ -2,14 +2,10 @@ module Game where
 
 import Rooms
 
--- To są takie jakby enumy normalne
 data JimQuest = StaplerInDesk
               | StaplerOutClear
               | StaplerOutJelly
               | StaplerInJelly deriving Eq
-
--- data JimQuest = JimQuestNotDone
-            --   | JimQuestDone deriving Eq
 
 data CreedQuest = CreedQuestNotStarted
                 | CreedQuestInProgress
@@ -22,11 +18,30 @@ data DwightQuest = DwightQuestNotStarted {-bathroom locked-}
                  | DwightQuestDoneHalf {-door destroyed-}
                  | DwightQuestDoneFull deriving Eq
 
+data Item = CreedReference
+          | JimReference
+          | DwightReference
+          | Stapler
+          | StaplerInJellyItem
+          | GrapeSodaItem
+          | StrangeSodaItem
+          | Coupon deriving Eq
+
+instance Show Item where
+  show CreedReference = "Creed's reference"
+  show JimReference = "Jim's reference"
+  show DwightReference = "Dwight's reference"
+  show Stapler = "Stapler"
+  show StaplerInJellyItem = "Stapler in jelly"
+  show GrapeSodaItem = "Grape soda"
+  show StrangeSodaItem = "Strange soda"
+  show Coupon = "Coupon to the vending machine (hint: type 'coupon' to have a look)"
+
 -- Define a type to hold the game state
--- Ta klaska nam trzyma wszystkie zmienne globalne
 data Game = Game { iamAt :: Room
                  , saidHi :: Bool
                  , jimQuest :: JimQuest
                  , creedQuest :: CreedQuest
                  , dwightQuest :: DwightQuest
+                 , inventory :: [Item]
                  }

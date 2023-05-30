@@ -85,7 +85,7 @@ gameLoop game = do
                 "talk" -> do
                   newGame <- talkCreed game
                   gameLoop newGame
-                "lookAround" -> do
+                "look_around" -> do
                   newGame <- checkDwightDesk game
                   gameLoop newGame
                 "break_code" -> do
